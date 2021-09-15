@@ -5,55 +5,38 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 	public Rigidbody rb;
+	public GameObject pivot;
 	public float speed = 1200f;
 	public float jumpForce = 600f;
 	private bool onGround = true;
+	private Vector3 Forward;
+	private Vector3 Right;
 
     // Run every fram for physics calculations.
     void FixedUpdate()
     {
+		Forward = pivot.transform.forward;
+		Right = pivot.transform.right;
+		Forward.y = 0;
+		Right.y = 0;
 		rb.AddForce(Physics.gravity * 2f, ForceMode.Acceleration);
 		if (onGround)
 		{
 			if (Input.GetKey("w"))
 			{
-				if (rb.velocity.z < 0)
-				{
-					rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
-					rb.AddForce(0, 0, 3 * speed * Time.deltaTime);
-				}
-				else if (rb.velocity.z < 10)
-					rb.AddForce(0, 0, speed * Time.deltaTime);
+				rb.AddForce(Forward * speed * Time.deltaTime, ForceMode.Impulse);
 			}
 			if (Input.GetKey("s"))
 			{
-				if (rb.velocity.z > 0)
-				{
-					rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, 0);
-					rb.AddForce(0, 0, 3 * -speed * Time.deltaTime);
-				}
-				else if (rb.velocity.z > -10)
-					rb.AddForce(0, 0, -speed * Time.deltaTime);
+				rb.AddForce(Forward * -speed * Time.deltaTime, ForceMode.Impulse);
 			}
 			if (Input.GetKey("d"))
 			{
-				if (rb.velocity.x < 0)
-				{
-					rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
-					rb.AddForce(3 * speed * Time.deltaTime, 0, 0);
-				}
-				else if (rb.velocity.x < 10)
-					rb.AddForce(speed * Time.deltaTime, 0, 0);
+				rb.AddForce(Right * speed * Time.deltaTime, ForceMode.Impulse);
 			}
 			if (Input.GetKey("a"))
 			{
-				if (rb.velocity.x > 0)
-				{
-					rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
-					rb.AddForce(3 * -speed * Time.deltaTime, 0, 0);
-				}
-				else if (rb.velocity.x > -10)
-					rb.AddForce(-speed * Time.deltaTime, 0, 0);
+				rb.AddForce(Right * -speed * Time.deltaTime, ForceMode.Impulse);
 			}
 		}
 		if (Input.GetKey(KeyCode.Space) && onGround)
