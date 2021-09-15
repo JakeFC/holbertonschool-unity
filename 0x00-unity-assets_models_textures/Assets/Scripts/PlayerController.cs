@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     {
 		Forward = pivot.transform.forward;
 		Right = pivot.transform.right;
-		Forward.y = 0;
-		Right.y = 0;
+		Forward.y = 0f;
+		Right.y = 0f;
 		rb.AddForce(Physics.gravity * 2f, ForceMode.Acceleration);
 		if (onGround)
 		{
@@ -41,8 +41,13 @@ public class PlayerController : MonoBehaviour
 		}
 		if (Input.GetKey(KeyCode.Space) && onGround)
 		{
-			rb.AddForce(0, jumpForce, 0);
+			rb.AddForce(0, jumpForce, 0f);
 			onGround = false;
+		}
+		if (transform.position.y < -80)
+		{
+			rb.velocity = new Vector3(0f, 0f, 0f);
+			transform.position = new Vector3(0f, 30f, 0f);
 		}
     }
 
