@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimerTrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
+	// Starts the Timer script of the Player object when this object is exited.
     void OnTriggerExit(Collider other)
 	{
 		other.GetComponent<Timer>().enabled = true;
