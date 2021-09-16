@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
 	public Text timer;
 	private float time = 0f;
 
-    // Update is called once per frame
+    // Keeps timer text updated with formatted current time.
     void Update()
     {
 		time += Time.deltaTime;

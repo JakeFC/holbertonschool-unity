@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 	private float yaw = 0f;
 	private float pitch = 0f;
 
-    // Update is called once per frame
+    // Rotates the Pivot object and its Main Camera child based on mouse movement.
     void Update()
     {
 		yaw += speedH * Input.GetAxis("Mouse X");

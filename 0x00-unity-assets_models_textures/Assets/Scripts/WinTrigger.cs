@@ -8,7 +8,7 @@ public class WinTrigger : MonoBehaviour
 	public Text timer;
 
 	// Stops the Timer script on the Player object and changes
-	// the font color to green and size to 64.
+	// the font color to green and size to 64 when entered.
     void OnTriggerEnter(Collider other)
 	{
 		other.GetComponent<Timer>().enabled = false;

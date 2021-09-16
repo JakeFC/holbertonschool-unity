@@ -44,13 +44,14 @@ public class PlayerController : MonoBehaviour
 			rb.AddForce(0, jumpForce, 0f);
 			onGround = false;
 		}
-		if (transform.position.y < -80)
+		if (transform.position.y < -60)
 		{
 			rb.velocity = new Vector3(0f, 0f, 0f);
-			transform.position = new Vector3(0f, 30f, 0f);
+			transform.position = new Vector3(0f, 25f, 0f);
 		}
     }
 
+	// Keeps onGround boolean updated.
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.tag == "Platform")
