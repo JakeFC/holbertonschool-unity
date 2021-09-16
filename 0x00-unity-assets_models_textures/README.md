@@ -14,4 +14,5 @@
 - What is a Quaternion
 
 
-Skyboxes: Farland Skies - Cloudy Crown ([Source](https://assetstore.unity.com/packages/2d/textures-materials/sky/farland-skies-cloudy-crown-60004))
+Skyboxes: Farland Skies - Cloudy Crown ([source](https://assetstore.unity.com/packages/2d/textures-materials/sky/farland-skies-cloudy-crown-60004))
+Models: Kenney's Nature Pack Extended ([source](https://kenney.nl/assets/nature-pack-extended))
