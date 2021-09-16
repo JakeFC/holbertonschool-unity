@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
 	public Rigidbody rb;
 	public GameObject pivot;
-	public float speed = 1200f;
+	public float speed = 40f;
 	public float jumpForce = 600f;
 	private bool onGround = true;
 	private Vector3 Forward;

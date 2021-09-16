@@ -1047,7 +1047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 334566728}
   pivot: {fileID: 404351297}
-  speed: 35
+  speed: 40
   jumpForce: 600
 --- !u!114 &334566730
 MonoBehaviour:
@@ -1609,23 +1609,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bf752292d51c7864b8dc1d49d1ef7f47, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bf752292d51c7864b8dc1d49d1ef7f47, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bf752292d51c7864b8dc1d49d1ef7f47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.96
+      value: 10.57
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bf752292d51c7864b8dc1d49d1ef7f47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.69
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bf752292d51c7864b8dc1d49d1ef7f47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 79.66
+      value: 85.19
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: bf752292d51c7864b8dc1d49d1ef7f47, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1733,6 +1733,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 874920134}
     m_Modifications:
+    - target: {fileID: 100000, guid: cc4d86227d944b4409167976c0a5f2f0, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: cc4d86227d944b4409167976c0a5f2f0, type: 3}
       propertyPath: m_Name
       value: naturePack_171
