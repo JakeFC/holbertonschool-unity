@@ -19,8 +19,11 @@ public class PlayerController : MonoBehaviour
 		Right = pivot.transform.right;
 		Forward.y = 0f;
 		Right.y = 0f;
+
+		// Multiplies the force of gravity on the player.
 		rb.AddForce(Physics.gravity * 2f, ForceMode.Acceleration);
 
+		// Moves the player with WASD while touching the ground.
 		if (onGround)
 		{
 			if (Input.GetKey("w"))
@@ -41,12 +44,14 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 
+		// Makes the player jump with spacebar while on ground.
 		if (Input.GetKey(KeyCode.Space) && onGround)
 		{
 			rb.AddForce(0, jumpForce, 0f);
 			onGround = false;
 		}
 
+		// Respawns the player at the start if they fall.
 		if (transform.position.y < -60)
 		{
 			rb.velocity = new Vector3(0f, 0f, 0f);

@@ -23,6 +23,7 @@ public class PauseMenu : MonoBehaviour
 	public void Pause()
 	{
 		Paused = true;
+		GetComponentsInChildren<CameraController>()[0].enabled = false;
 		GetComponent<Timer>().enabled = false;
 		PauseCanvas.SetActive(true);
 	}
@@ -31,6 +32,7 @@ public class PauseMenu : MonoBehaviour
 	public void Resume()
 	{
 		Paused = false;
+		GetComponentsInChildren<CameraController>()[0].enabled = true;
 		GetComponent<Timer>().enabled = true;
 		PauseCanvas.SetActive(false);
 	}
