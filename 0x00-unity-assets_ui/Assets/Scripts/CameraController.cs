@@ -12,6 +12,17 @@ public class CameraController : MonoBehaviour
 
 	public bool isInverted = false;
 
+	// Checks PlayerPrefs for Y-axis inversion settings on load.
+	void Start()
+	{
+		if (PlayerPrefs.HasKey("Inverted"))
+		{
+			if (PlayerPrefs.GetInt("Inverted") == 0)
+				isInverted = false;
+			else
+				isInverted = true;
+		}
+	}
     // Rotates the Pivot object and its Main Camera child based on mouse movement.
     void Update()
     {

@@ -980,6 +980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8fa202354f3b204aa627a0b7d175cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invertYToggle: {fileID: 1630570950}
 --- !u!1 &698917973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2095,6 +2096,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 598796745}
     m_Modifications:
+    - target: {fileID: 6000416922200466793, guid: a4551c119a13b5648ac539681b493651, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000416922200466793, guid: a4551c119a13b5648ac539681b493651, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000416922200466793, guid: a4551c119a13b5648ac539681b493651, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 598796746}
+    - target: {fileID: 6000416922200466793, guid: a4551c119a13b5648ac539681b493651, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000416922200466793, guid: a4551c119a13b5648ac539681b493651, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Apply
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000416922200466793, guid: a4551c119a13b5648ac539681b493651, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OptionsMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6000416922200466793, guid: a4551c119a13b5648ac539681b493651, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6495401589038948023, guid: a4551c119a13b5648ac539681b493651, type: 3}
       propertyPath: m_Name
       value: ApplyButton
