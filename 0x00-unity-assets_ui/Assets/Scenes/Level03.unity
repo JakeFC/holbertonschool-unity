@@ -1465,6 +1465,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1121158467}
     m_Modifications:
+    - target: {fileID: 100000, guid: 75f74dffd71c8ff4e9c5c71059eb1d13, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 75f74dffd71c8ff4e9c5c71059eb1d13, type: 3}
       propertyPath: m_Name
       value: naturePack_077
@@ -2241,6 +2245,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1287576189}
     m_Modifications:
+    - target: {fileID: 100000, guid: 75f74dffd71c8ff4e9c5c71059eb1d13, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 75f74dffd71c8ff4e9c5c71059eb1d13, type: 3}
       propertyPath: m_Name
       value: naturePack_077
