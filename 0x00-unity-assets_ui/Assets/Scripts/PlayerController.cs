@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 		Forward.y = 0f;
 		Right.y = 0f;
 		rb.AddForce(Physics.gravity * 2f, ForceMode.Acceleration);
+
 		if (onGround)
 		{
 			if (Input.GetKey("w"))
@@ -39,11 +40,13 @@ public class PlayerController : MonoBehaviour
 				rb.AddForce(Right * -speed * Time.deltaTime, ForceMode.Impulse);
 			}
 		}
+
 		if (Input.GetKey(KeyCode.Space) && onGround)
 		{
 			rb.AddForce(0, jumpForce, 0f);
 			onGround = false;
 		}
+
 		if (transform.position.y < -60)
 		{
 			rb.velocity = new Vector3(0f, 0f, 0f);
