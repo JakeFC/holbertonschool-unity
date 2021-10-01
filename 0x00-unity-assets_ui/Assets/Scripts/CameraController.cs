@@ -34,5 +34,13 @@ public class CameraController : MonoBehaviour
 			pitch -= speedV * Input.GetAxis("Mouse Y");
 
 		transform.eulerAngles = new Vector3(pitch, yaw, 0);
+
+		// the following could also work if placed on camera GameObject
+		//
+		// if (Input.GetMouseButton(0))
+		// {
+		//	transform.RotateAround(target.transform.position, -Vector3.up, Input.GetAxis("Mouse X"));
+		//	transform.RotateAround(target.transform.position, Vector3.right, Input.GetAxis("Mouse Y"));
+		//	}
     }
 }
