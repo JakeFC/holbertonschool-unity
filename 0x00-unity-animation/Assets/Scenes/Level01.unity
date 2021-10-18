@@ -2786,6 +2786,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e49bfd1a5116c0f4a90a8dfcdbba7e20, type: 3}
+--- !u!95 &961900345 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3282305313191838537, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
+  m_PrefabInstance: {fileID: 5286350469047288962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &968918457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7143,6 +7148,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3282305313191838537, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5286350469323133377, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7223,6 +7232,10 @@ PrefabInstance:
       propertyPath: jumpForce
       value: 700
       objectReference: {fileID: 0}
+    - target: {fileID: 5286350469323133387, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
+      propertyPath: tyController
+      value: 
+      objectReference: {fileID: 961900345}
     - target: {fileID: 8893830389862275379, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1
