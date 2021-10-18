@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 	public GameObject pivot;
 	public float speed = 40f;
 	public float jumpForce = 600f;
+	public Animator tyController;
 	private bool onGround = true;
 	private Vector3 Forward;
 	private Vector3 Right;
@@ -39,25 +40,31 @@ public class PlayerController : MonoBehaviour
 				targetRotation = Quaternion.LookRotation(Forward, Vector3.up);
 				// Rotates the player towards the targetRotation over time
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+				tyController.SetBool("IsMoving", true);
 			}
-			if (Input.GetKey("s"))
+			else if (Input.GetKey("s"))
 			{
 				rb.AddForce(Forward * -speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(-Forward, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+				tyController.SetBool("IsMoving", true);
 			}
-			if (Input.GetKey("d"))
+			else if (Input.GetKey("d"))
 			{
 				rb.AddForce(Right * speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(Right, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+				tyController.SetBool("IsMoving", true);
 			}
-			if (Input.GetKey("a"))
+			else if (Input.GetKey("a"))
 			{
 				rb.AddForce(Right * -speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(-Right, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+				tyController.SetBool("IsMoving", true);
 			}
+			else
+				tyController.SetBool("IsMoving", false);
 		}
 
 		// Makes the player jump with spacebar while on ground.
