@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 	private Vector3 Right;
 	private float step;
 	private Quaternion targetRotation;
+	private bool resetting = false;
 
     // Run every fram for physics calculations.
     void FixedUpdate()
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
 		// Moves the player with WASD while touching the ground.
 		if (onGround)
 		{
-			if (Input.GetKey("w"))
+			if (Input.GetKey("w") && !resetting)
 			{
 				// Moves the player horizontally over time in the given direction
 				rb.AddForce(Forward * speed * Time.deltaTime, ForceMode.Impulse);
@@ -41,19 +42,19 @@ public class PlayerController : MonoBehaviour
 				// Rotates the player towards the targetRotation over time
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
-			if (Input.GetKey("s"))
+			if (Input.GetKey("s") && !resetting)
 			{
 				rb.AddForce(Forward * -speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(-Forward, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
-			if (Input.GetKey("d"))
+			if (Input.GetKey("d") && !resetting)
 			{
 				rb.AddForce(Right * speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(Right, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
-			if (Input.GetKey("a"))
+			if (Input.GetKey("a") && !resetting)
 			{
 				rb.AddForce(Right * -speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(-Right, Vector3.up);
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
 		}
 
 		// Makes the player jump with spacebar while on ground.
-		if (Input.GetKey(KeyCode.Space) && onGround)
+		if (Input.GetKey(KeyCode.Space) && onGround && !resetting)
 		{
 			rb.AddForce(0, jumpForce, 0f);
 			onGround = false;
@@ -84,10 +85,18 @@ public class PlayerController : MonoBehaviour
 			rb.velocity = new Vector3(0f, 0f, 0f);
 			transform.position = new Vector3(0f, 25f, 0f);
 			transform.rotation = new Quaternion(0, 0, 0, 0);
+			StartCoroutine(Reset());
 		}
     }
 
-	// Keeps onGround boolean updated.
+	// Changes a boolean for 10 seconds that movement physics rely upon
+	IEnumerator Reset()
+	{
+		resetting = true;
+		yield return new WaitForSeconds(10);
+		resetting = false;
+	}
+	// Keeps onGround, IsJumping, and IsFalling booleans updated.
 	void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.tag == "Platform")
