@@ -40,31 +40,29 @@ public class PlayerController : MonoBehaviour
 				targetRotation = Quaternion.LookRotation(Forward, Vector3.up);
 				// Rotates the player towards the targetRotation over time
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-				tyController.SetBool("IsRunning", true);
 			}
-			else if (Input.GetKey("s"))
+			if (Input.GetKey("s"))
 			{
 				rb.AddForce(Forward * -speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(-Forward, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-				tyController.SetBool("IsRunning", true);
 			}
-			else if (Input.GetKey("d"))
+			if (Input.GetKey("d"))
 			{
 				rb.AddForce(Right * speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(Right, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-				tyController.SetBool("IsRunning", true);
 			}
-			else if (Input.GetKey("a"))
+			if (Input.GetKey("a"))
 			{
 				rb.AddForce(Right * -speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(-Right, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-				tyController.SetBool("IsRunning", true);
 			}
-			else
+			if (rb.velocity.x < 0.1 && rb.velocity.z < 0.1)
 				tyController.SetBool("IsRunning", false);
+			else
+				tyController.SetBool("IsRunning", true);
 		}
 
 		// Makes the player jump with spacebar while on ground.
@@ -73,6 +71,11 @@ public class PlayerController : MonoBehaviour
 			rb.AddForce(0, jumpForce, 0f);
 			onGround = false;
 			tyController.SetBool("IsJumping", true);
+		}
+
+		if (transform.position.y < -10)
+		{
+			tyController.SetBool("IsFalling", true);
 		}
 
 		// Respawns the player at the start if they fall.
@@ -91,6 +94,7 @@ public class PlayerController : MonoBehaviour
 		{
 			onGround = true;
 			tyController.SetBool("IsJumping", false);
+			tyController.SetBool("IsFalling", false);
 		}
 	}
 }
