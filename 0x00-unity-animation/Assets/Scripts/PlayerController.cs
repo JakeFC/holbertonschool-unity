@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 	private bool onGround = true;
 	private Vector3 Forward;
 	private Vector3 Right;
+	private float step;
+	private Quaternion targetRotation;
 
     // Run every fram for physics calculations.
     void FixedUpdate()
@@ -19,6 +21,9 @@ public class PlayerController : MonoBehaviour
 		Right = pivot.transform.right;
 		Forward.y = 0f;
 		Right.y = 0f;
+		Forward.Normalize();
+		Right.Normalize();
+		step = 720 * Time.deltaTime;
 
 		// Multiplies the force of gravity on the player.
 		rb.AddForce(Physics.gravity * 2f, ForceMode.Acceleration);
@@ -28,19 +33,30 @@ public class PlayerController : MonoBehaviour
 		{
 			if (Input.GetKey("w"))
 			{
+				// Moves the player horizontally over time in the given direction
 				rb.AddForce(Forward * speed * Time.deltaTime, ForceMode.Impulse);
+				// Sets the target angle to rotate towards to match the movement direction
+				targetRotation = Quaternion.LookRotation(Forward, Vector3.up);
+				// Rotates the player towards the targetRotation over time
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
 			if (Input.GetKey("s"))
 			{
 				rb.AddForce(Forward * -speed * Time.deltaTime, ForceMode.Impulse);
+				targetRotation = Quaternion.LookRotation(-Forward, Vector3.up);
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
 			if (Input.GetKey("d"))
 			{
 				rb.AddForce(Right * speed * Time.deltaTime, ForceMode.Impulse);
+				targetRotation = Quaternion.LookRotation(Right, Vector3.up);
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
 			if (Input.GetKey("a"))
 			{
 				rb.AddForce(Right * -speed * Time.deltaTime, ForceMode.Impulse);
+				targetRotation = Quaternion.LookRotation(-Right, Vector3.up);
+				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
 		}
 

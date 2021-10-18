@@ -1437,6 +1437,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1426012973}
     m_Modifications:
+    - target: {fileID: 100000, guid: 07e446560dc44e541baace5cb250c866, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 07e446560dc44e541baace5cb250c866, type: 3}
       propertyPath: m_Name
       value: naturePack_032
@@ -7204,8 +7208,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1714537544}
     - target: {fileID: 5286350469323133386, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286350469323133386, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
       propertyPath: m_CollisionDetection
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286350469323133387, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
+      propertyPath: speed
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286350469323133387, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
+      propertyPath: jumpForce
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 8893830389862275379, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
       propertyPath: m_LocalPosition.y
