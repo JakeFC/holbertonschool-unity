@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
 		{
 			rb.velocity = new Vector3(0f, 0f, 0f);
 			transform.position = new Vector3(0f, 25f, 0f);
+			transform.rotation = new Quaternion(0, 0, 0, 0);
 		}
     }
 
