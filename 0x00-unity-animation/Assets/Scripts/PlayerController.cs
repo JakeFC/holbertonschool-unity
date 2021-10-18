@@ -40,31 +40,31 @@ public class PlayerController : MonoBehaviour
 				targetRotation = Quaternion.LookRotation(Forward, Vector3.up);
 				// Rotates the player towards the targetRotation over time
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-				tyController.SetBool("IsMoving", true);
+				tyController.SetBool("IsRunning", true);
 			}
 			else if (Input.GetKey("s"))
 			{
 				rb.AddForce(Forward * -speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(-Forward, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-				tyController.SetBool("IsMoving", true);
+				tyController.SetBool("IsRunning", true);
 			}
 			else if (Input.GetKey("d"))
 			{
 				rb.AddForce(Right * speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(Right, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-				tyController.SetBool("IsMoving", true);
+				tyController.SetBool("IsRunning", true);
 			}
 			else if (Input.GetKey("a"))
 			{
 				rb.AddForce(Right * -speed * Time.deltaTime, ForceMode.Impulse);
 				targetRotation = Quaternion.LookRotation(-Right, Vector3.up);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
-				tyController.SetBool("IsMoving", true);
+				tyController.SetBool("IsRunning", true);
 			}
 			else
-				tyController.SetBool("IsMoving", false);
+				tyController.SetBool("IsRunning", false);
 		}
 
 		// Makes the player jump with spacebar while on ground.
@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
 		{
 			rb.AddForce(0, jumpForce, 0f);
 			onGround = false;
+			tyController.SetBool("IsJumping", true);
 		}
 
 		// Respawns the player at the start if they fall.
@@ -89,6 +90,7 @@ public class PlayerController : MonoBehaviour
 		if (other.gameObject.tag == "Platform")
 		{
 			onGround = true;
+			tyController.SetBool("IsJumping", false);
 		}
 	}
 }
