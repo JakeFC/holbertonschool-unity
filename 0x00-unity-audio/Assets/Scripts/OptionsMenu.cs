@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
 	public GameObject invertYToggle;
+	public AudioMixer masterMixer;
 
 	// Sets the state of Invert Y-Axis to the saved setting on load.
 	void Start()
@@ -35,5 +37,17 @@ public class OptionsMenu : MonoBehaviour
 		else
 			PlayerPrefs.SetInt("Inverted", 0);
 		SceneManager.LoadScene(PlayerPrefs.GetString("LastScene"));
+	}
+
+	// Sets the background music volume in the master mixer.
+	public void SetBgmVolume(float bgmLvl)
+	{
+		masterMixer.SetFloat("bgmVol", Mathf.Log10(bgmLvl) * 20);
+	}
+
+	// Sets the sound effects volume in the master mixer.
+	public void SetSfxVolume(float sfxLvl)
+	{
+		masterMixer.SetFloat("sfxVol", 20 * Mathf.Log10(sfxLvl));
 	}
 }
