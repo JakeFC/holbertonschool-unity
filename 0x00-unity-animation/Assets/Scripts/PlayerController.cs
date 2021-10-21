@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 	void Start()
 	{
 		step = 7200 * Time.deltaTime;
-		targetRotation = Quaternion.LookRotation(Forward, Vector3.up);
+		targetRotation.Set(0, 0, 0, 1);
 	}
     // Run every fram for physics calculations.
     void FixedUpdate()
