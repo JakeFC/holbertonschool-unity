@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 894417922}
     m_Modifications:
+    - target: {fileID: 100000, guid: 0954bd92817da104caa16539d7ab19ad, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0954bd92817da104caa16539d7ab19ad, type: 3}
       propertyPath: m_Name
       value: naturePack_033
@@ -280,7 +284,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 2508f6de3b7e7fa4198be0fa495e39f9, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 2508f6de3b7e7fa4198be0fa495e39f9, type: 3}
       propertyPath: m_Name
@@ -375,7 +379,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: e49bfd1a5116c0f4a90a8dfcdbba7e20, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: e49bfd1a5116c0f4a90a8dfcdbba7e20, type: 3}
       propertyPath: m_Name
@@ -612,7 +616,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 0779e5d1277806848b714d6a6f32c6c6, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0779e5d1277806848b714d6a6f32c6c6, type: 3}
       propertyPath: m_Name
@@ -689,7 +693,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 0779e5d1277806848b714d6a6f32c6c6, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0779e5d1277806848b714d6a6f32c6c6, type: 3}
       propertyPath: m_Name
@@ -1012,6 +1016,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5286350469323133377, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
   m_PrefabInstance: {fileID: 5286350469047288962}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &334566724 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5286350469323133381, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
+  m_PrefabInstance: {fileID: 5286350469047288962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &334566731 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5286350469323133385, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
@@ -1105,7 +1114,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 5bbd38b811260ba48bfa2081679110e9, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 5bbd38b811260ba48bfa2081679110e9, type: 3}
       propertyPath: m_Name
@@ -1257,6 +1266,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2013722088}
     m_Modifications:
+    - target: {fileID: 100000, guid: b6718d3b7ff298b468d8df1446331e7f, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: b6718d3b7ff298b468d8df1446331e7f, type: 3}
       propertyPath: m_Name
       value: naturePack_031
@@ -1889,7 +1902,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 65ffdda6e1e28f3458245c40c60ed72b, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 65ffdda6e1e28f3458245c40c60ed72b, type: 3}
       propertyPath: m_Name
@@ -2791,6 +2804,133 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 3282305313191838537, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
   m_PrefabInstance: {fileID: 5286350469047288962}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &965089865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 965089866}
+  - component: {fileID: 965089867}
+  m_Layer: 0
+  m_Name: footsteps_running_rock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &965089866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965089865}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 334566724}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &965089867
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965089865}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -5082790232948324959, guid: 3e1bf980f01cc6e498ef5f1e337e2aec, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 15f6e6099f2aa3c48b7e914ae2901843, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &968918457
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2800,7 +2940,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 798fbd8e40ae08946840d1acddba5cef, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 798fbd8e40ae08946840d1acddba5cef, type: 3}
       propertyPath: m_Name
@@ -2949,6 +3089,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 894417922}
     m_Modifications:
+    - target: {fileID: 100000, guid: 0954bd92817da104caa16539d7ab19ad, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0954bd92817da104caa16539d7ab19ad, type: 3}
       propertyPath: m_Name
       value: naturePack_033 (1)
@@ -3097,7 +3241,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 0779e5d1277806848b714d6a6f32c6c6, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 0779e5d1277806848b714d6a6f32c6c6, type: 3}
       propertyPath: m_Name
@@ -3876,7 +4020,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: b79f6cadd15f0d74189e915531146d3c, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: b79f6cadd15f0d74189e915531146d3c, type: 3}
       propertyPath: m_Name
@@ -4578,7 +4722,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: ba7a1193441cf6e4ea78c2ef8a6d52a4, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ba7a1193441cf6e4ea78c2ef8a6d52a4, type: 3}
       propertyPath: m_Name
@@ -4655,7 +4799,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: e49bfd1a5116c0f4a90a8dfcdbba7e20, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: e49bfd1a5116c0f4a90a8dfcdbba7e20, type: 3}
       propertyPath: m_Name
@@ -5126,6 +5270,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2013722088}
     m_Modifications:
+    - target: {fileID: 100000, guid: 99a3793ad6e25da4790edb76c31bc3ed, type: 3}
+      propertyPath: m_TagString
+      value: Platform
+      objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 99a3793ad6e25da4790edb76c31bc3ed, type: 3}
       propertyPath: m_Name
       value: naturePack_030
@@ -5804,7 +5952,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 652c9245689d47047968c2020f300db3, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 652c9245689d47047968c2020f300db3, type: 3}
       propertyPath: m_Name
@@ -5910,7 +6058,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: ba7a1193441cf6e4ea78c2ef8a6d52a4, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: ba7a1193441cf6e4ea78c2ef8a6d52a4, type: 3}
       propertyPath: m_Name
@@ -6761,6 +6909,133 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5286350468615196021, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
   m_PrefabInstance: {fileID: 5286350469047288962}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2054693615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2054693616}
+  - component: {fileID: 2054693617}
+  m_Layer: 0
+  m_Name: footsteps_running_grass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2054693616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054693615}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 334566724}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2054693617
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054693615}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -5082790232948324959, guid: 3e1bf980f01cc6e498ef5f1e337e2aec, type: 2}
+  m_audioClip: {fileID: 8300000, guid: fc71796c0fceba74ba70db5a868f523c, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2087547874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6770,7 +7045,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 5bbd38b811260ba48bfa2081679110e9, type: 3}
       propertyPath: m_TagString
-      value: Platform
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 5bbd38b811260ba48bfa2081679110e9, type: 3}
       propertyPath: m_Name
@@ -7226,12 +7501,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5286350469323133387, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
       propertyPath: speed
-      value: 35
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5286350469323133387, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
       propertyPath: jumpForce
       value: 700
       objectReference: {fileID: 0}
+    - target: {fileID: 5286350469323133387, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
+      propertyPath: runningRock
+      value: 
+      objectReference: {fileID: 965089867}
+    - target: {fileID: 5286350469323133387, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
+      propertyPath: runningGrass
+      value: 
+      objectReference: {fileID: 2054693617}
     - target: {fileID: 5286350469323133387, guid: 686c2e01c6b50d0408acc80da4301fdb, type: 3}
       propertyPath: tyController
       value: 

@@ -9,17 +9,38 @@ public class PlayerController : MonoBehaviour
 	public float speed = 40f;
 	public float jumpForce = 600f;
 	public Animator tyController;
+	public AudioSource runningGrass;
+	public AudioSource runningRock;
 	private bool onGround = true;
 	private Vector3 Forward;
 	private Vector3 Right;
 	private float step;
 	private Quaternion targetRotation;
 	private bool resetting = false;
+	private string groundType;
+	private bool runningSound = false;
+	private float time;
 
 	void Start()
 	{
 		step = 7200 * Time.deltaTime;
 		targetRotation.Set(0, 0, 0, 1);
+	}
+	void Update()
+	{
+		if (runningRock.isPlaying)
+		{
+			time += Time.deltaTime;
+		}
+		else if (time > 0 && time < 0.388f && runningSound)
+		{
+			time += Time.deltaTime;
+		}
+		else if (time >= 0.388f)
+		{
+			runningRock.Play();
+			time = 0;
+		}
 	}
     // Run every fram for physics calculations.
     void FixedUpdate()
@@ -65,9 +86,17 @@ public class PlayerController : MonoBehaviour
 			}
 			if (rb.velocity.x < 0.1 && rb.velocity.x > -0.1 &&
 				rb.velocity.z < 0.1 && rb.velocity.z > -0.1)
+			{
 				tyController.SetBool("IsRunning", false);
+				if (runningSound)
+					StopRunning();
+			}
 			else
+			{
 				tyController.SetBool("IsRunning", true);
+				if (!runningSound)
+					PlayRunning();
+			}
 		}
 
 		// Makes the player jump with spacebar while on ground.
@@ -103,11 +132,40 @@ public class PlayerController : MonoBehaviour
 	// Keeps onGround, IsJumping, and IsFalling booleans updated.
 	void OnCollisionEnter(Collision other)
 	{
-		if (other.gameObject.tag == "Platform")
+		if (other.gameObject.tag == "Platform" || other.gameObject.tag == "Grass")
 		{
 			onGround = true;
 			tyController.SetBool("IsJumping", false);
 			tyController.SetBool("IsFalling", false);
+			groundType = other.gameObject.tag;
 		}
+	}
+	void OnCollisionExit(Collision other)
+	{
+		if (other.gameObject.tag == "Platform" || other.gameObject.tag == "Grass")
+		{
+			onGround = false;
+			if (runningSound)
+					StopRunning();
+		}
+	}
+
+	void PlayRunning()
+	{
+		if (groundType == "Grass")
+			runningGrass.Play();
+		else
+			runningRock.Play();
+		runningSound = true;
+	}
+
+	void StopRunning()
+	{
+		if (groundType == "Grass")
+			runningGrass.Stop();
+		else
+			runningRock.Stop();
+		runningSound = false;
+		time = 0;
 	}
 }
