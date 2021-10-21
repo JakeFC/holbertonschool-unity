@@ -42,12 +42,12 @@ public class OptionsMenu : MonoBehaviour
 	// Sets the background music volume in the master mixer.
 	public void SetBgmVolume(float bgmLvl)
 	{
-		masterMixer.SetFloat("bgmVol", Mathf.Log10(bgmLvl) * 20);
+		masterMixer.SetFloat("bgmVol", Mathf.Log10(bgmLvl) * 40);
 	}
 
 	// Sets the sound effects volume in the master mixer.
 	public void SetSfxVolume(float sfxLvl)
 	{
-		masterMixer.SetFloat("sfxVol", 20 * Mathf.Log10(sfxLvl));
+		masterMixer.SetFloat("sfxVol", Mathf.Log10(sfxLvl) * 40);
 	}
 }
