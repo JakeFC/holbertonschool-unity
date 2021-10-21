@@ -16,6 +16,11 @@ public class PlayerController : MonoBehaviour
 	private Quaternion targetRotation;
 	private bool resetting = false;
 
+	void Start()
+	{
+		step = 7200 * Time.deltaTime;
+		targetRotation = Quaternion.LookRotation(Forward, Vector3.up);
+	}
     // Run every fram for physics calculations.
     void FixedUpdate()
     {
@@ -25,8 +30,6 @@ public class PlayerController : MonoBehaviour
 		Right.y = 0f;
 		Forward.Normalize();
 		Right.Normalize();
-		step = 720 * Time.deltaTime;
-
 		// Multiplies the force of gravity on the player.
 		rb.AddForce(Physics.gravity * 2f, ForceMode.Acceleration);
 
@@ -38,29 +41,30 @@ public class PlayerController : MonoBehaviour
 				// Moves the player horizontally over time in the given direction
 				rb.AddForce(Forward * speed * Time.deltaTime, ForceMode.Impulse);
 				// Sets the target angle to rotate towards to match the movement direction
-				targetRotation = Quaternion.LookRotation(Forward, Vector3.up);
+				targetRotation = Quaternion.Slerp(targetRotation, Quaternion.LookRotation(Forward, Vector3.up), 0.5f);
 				// Rotates the player towards the targetRotation over time
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
 			if (Input.GetKey("s") && !resetting)
 			{
 				rb.AddForce(Forward * -speed * Time.deltaTime, ForceMode.Impulse);
-				targetRotation = Quaternion.LookRotation(-Forward, Vector3.up);
+				targetRotation = Quaternion.Slerp(targetRotation, Quaternion.LookRotation(-Forward, Vector3.up), 0.5f);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
 			if (Input.GetKey("d") && !resetting)
 			{
 				rb.AddForce(Right * speed * Time.deltaTime, ForceMode.Impulse);
-				targetRotation = Quaternion.LookRotation(Right, Vector3.up);
+				targetRotation = Quaternion.Slerp(targetRotation, Quaternion.LookRotation(Right, Vector3.up), 0.5f);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
 			if (Input.GetKey("a") && !resetting)
 			{
 				rb.AddForce(Right * -speed * Time.deltaTime, ForceMode.Impulse);
-				targetRotation = Quaternion.LookRotation(-Right, Vector3.up);
+				targetRotation = Quaternion.Slerp(targetRotation, Quaternion.LookRotation(-Right, Vector3.up), 0.5f);
 				transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
 			}
-			if (rb.velocity.x < 0.1 && rb.velocity.z < 0.1)
+			if (rb.velocity.x < 0.1 && rb.velocity.x > -0.1 &&
+				rb.velocity.z < 0.1 && rb.velocity.z > -0.1)
 				tyController.SetBool("IsRunning", false);
 			else
 				tyController.SetBool("IsRunning", true);

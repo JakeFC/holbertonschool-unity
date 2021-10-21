@@ -5,17 +5,17 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>English</string>
     <key>CFBundleExecutable</key>
-    <string>0x00-unity-animation</string>
+    <string>Platformer</string>
     <key>CFBundleGetInfoString</key>
     <string>Unity Player version 2020.3.15f2 (6cf78cb77498). (c) 2021 Unity Technologies ApS. All rights reserved.</string>
     <key>CFBundleIconFile</key>
     <string>PlayerIcon.icns</string>
     <key>CFBundleIdentifier</key>
-    <string>com.DefaultCompany.0x00-unity-animation</string>
+    <string>com.DefaultCompany.Platformer</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
-    <string>0x00-unity-animation</string>
+    <string>Platformer</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
