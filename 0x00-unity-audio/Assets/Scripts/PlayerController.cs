@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 	public Animator tyController;
 	public AudioSource runningGrass;
 	public AudioSource runningRock;
+	public AudioSource landingGrass;
+	public AudioSource landingRock;
 	private bool onGround = true;
 	private Vector3 Forward;
 	private Vector3 Right;
@@ -136,7 +138,14 @@ public class PlayerController : MonoBehaviour
 		{
 			onGround = true;
 			tyController.SetBool("IsJumping", false);
-			tyController.SetBool("IsFalling", false);
+			if (tyController.GetBool("IsFalling"))
+			{
+				tyController.SetBool("IsFalling", false);
+				if (other.gameObject.tag == "Grass")
+					landingGrass.Play();
+				else
+					landingRock.Play();
+			}
 			groundType = other.gameObject.tag;
 		}
 	}
