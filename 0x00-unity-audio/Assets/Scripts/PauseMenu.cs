@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
 	public GameObject PauseCanvas;
 	public AudioSource backgroundMusic;
+	public AudioMixerSnapshot paused;
+	public AudioMixerSnapshot unpaused;
 	private bool Paused = false;
 
     // Used to monitor escape keypress.
@@ -14,9 +17,15 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			if (Paused)
+			{
+				unpaused.TransitionTo(0.01f);
 				Resume();
+			}
 			else
+			{
+				paused.TransitionTo(0.01f);
 				Pause();
+			}
 		}
     }
 
