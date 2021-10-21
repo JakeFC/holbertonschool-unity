@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 	public GameObject PauseCanvas;
+	public AudioSource backgroundMusic;
 	private bool Paused = false;
 
     // Used to monitor escape keypress.
@@ -46,6 +47,7 @@ public class PauseMenu : MonoBehaviour
 	// Loads the MainMenu scene.
 	public void MainMenu()
 	{
+		backgroundMusic.Stop();
 		SceneManager.LoadScene("MainMenu");
 	}
 

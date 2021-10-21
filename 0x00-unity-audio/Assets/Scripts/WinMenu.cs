@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class WinMenu : MonoBehaviour
 {
+	public AudioSource backgroundMusic;
+	void Start()
+	{
+		backgroundMusic.Stop();
+	}
 	// Loads the Main Menu.
     public void MainMenu()
 	{

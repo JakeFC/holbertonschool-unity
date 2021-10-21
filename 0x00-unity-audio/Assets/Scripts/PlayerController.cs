@@ -6,14 +6,14 @@ public class PlayerController : MonoBehaviour
 {
 	public Rigidbody rb;
 	public GameObject pivot;
-	public float speed = 40f;
-	public float jumpForce = 600f;
+	public float speed;
+	public float jumpForce;
 	public Animator tyController;
 	public AudioSource runningGrass;
 	public AudioSource runningRock;
 	public AudioSource landingGrass;
 	public AudioSource landingRock;
-	private bool onGround = true;
+	private int onGround = 0;
 	private Vector3 Forward;
 	private Vector3 Right;
 	private float step;
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 		rb.AddForce(Physics.gravity * 2f, ForceMode.Acceleration);
 
 		// Moves the player with WASD while touching the ground.
-		if (onGround)
+		if (onGround > 0)
 		{
 			if (Input.GetKey("w") && !resetting)
 			{
@@ -102,10 +102,9 @@ public class PlayerController : MonoBehaviour
 		}
 
 		// Makes the player jump with spacebar while on ground.
-		if (Input.GetKey(KeyCode.Space) && onGround && !resetting)
+		if (Input.GetKey(KeyCode.Space) && onGround > 0 && !resetting)
 		{
 			rb.AddForce(0, jumpForce, 0f);
-			onGround = false;
 			tyController.SetBool("IsJumping", true);
 		}
 
@@ -136,7 +135,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Platform" || other.gameObject.tag == "Grass")
 		{
-			onGround = true;
+			onGround++;
 			tyController.SetBool("IsJumping", false);
 			if (tyController.GetBool("IsFalling"))
 			{
@@ -153,7 +152,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Platform" || other.gameObject.tag == "Grass")
 		{
-			onGround = false;
+			onGround--;
 			if (runningSound)
 					StopRunning();
 		}
