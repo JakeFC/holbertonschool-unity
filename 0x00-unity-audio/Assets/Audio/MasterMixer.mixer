@@ -84,6 +84,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 3918356134807534926}
   - {fileID: -3207188027915443756}
+  - {fileID: -717318017410092575}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -100,6 +101,8 @@ AudioMixerSnapshotController:
   m_FloatValues:
     09dff241d9de0694b8922442cbc748da: 4000
     c731ff02877555246b03d47d78529667: 4
+    7d8c730398e084f4ab67988670679ca4: -2
+    b71385154bc135847be7be691cf634a4: 2
     ff36ee353c2b3fe4eb0a4c9f83d35145: 0.2
     3059c5559b1b5fe479a447070f88b654: 666
     b7b24ec51da84044d8df5023585a50c7: 2
@@ -113,6 +116,8 @@ AudioMixerSnapshotController:
     096e79d8602f7f140845e3e31cc5b399: 5
     a37ae8f865b38314daf1a502763cc907: -9.833291
     f74e640918f24fc4f9d0ec3bc47e6fde: 1
+    6bd0b19b1d1aac54c981b20c6fadfe83: -50
+    c494331dfc228654eb2c4ecad7946dc7: 0
     539bd96d9bc4981478f7b1c4d364aa15: -27.9
     4961fb9d3362f8c41a9177b889ea8d91: 3000
   m_TransitionOverrides: {}
@@ -167,6 +172,28 @@ AudioMixerEffectController:
   m_EffectName: Attenuation
   m_MixLevel: 034b205a74602aa4aaa759f7d30f2dcd
   m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &-717318017410092575
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 33993c6dcc3c72b4e920cbc4e5c9a3dd
+  m_EffectName: Compressor
+  m_MixLevel: 48d02c08018b5324090eebf7e0e4a5d9
+  m_Parameters:
+  - m_ParameterName: Threshold
+    m_GUID: 6bd0b19b1d1aac54c981b20c6fadfe83
+  - m_ParameterName: Attack
+    m_GUID: 3bc50edfc0d90ae47807a30534fd1318
+  - m_ParameterName: Release
+    m_GUID: 7f0a2765073d5a9459a094f087b94b68
+  - m_ParameterName: Make up gain
+    m_GUID: c494331dfc228654eb2c4ecad7946dc7
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
@@ -258,6 +285,7 @@ AudioMixerSnapshotController:
     6f7ff3f76b282584f801c8cf86510288: 0
     f4b2ae18eb558b74abc8db5b11d7a1a7: 3
     26ffea681accbdd429cdec99f023eb0b: -20
+    f274fbb86df1f5d4fb0dfef706bbfa31: -21
     096e79d8602f7f140845e3e31cc5b399: 5
     a37ae8f865b38314daf1a502763cc907: 0
     f74e640918f24fc4f9d0ec3bc47e6fde: 1
