@@ -9,6 +9,8 @@ public class OptionsMenu : MonoBehaviour
 {
 	public GameObject invertYToggle;
 	public AudioMixer masterMixer;
+	public Slider bgmSlider;
+	public Slider sfxSlider;
 
 	// Sets the state of Invert Y-Axis to the saved setting on load.
 	void Start()
@@ -20,6 +22,14 @@ public class OptionsMenu : MonoBehaviour
 			else
 				invertYToggle.GetComponent<Toggle>().isOn = true;
 		}
+		if (PlayerPrefs.HasKey("bgmVol"))
+		{
+			bgmSlider.value = PlayerPrefs.GetFloat("bgmVol");
+		}
+		if (PlayerPrefs.HasKey("sfxVol"))
+		{
+			sfxSlider.value = PlayerPrefs.GetFloat("sfxVol");
+		}
 	}
 
 	// Loads the previous scene, saved to PlayerPrefs whenever OptionsMenu
@@ -29,7 +39,7 @@ public class OptionsMenu : MonoBehaviour
 		SceneManager.LoadScene(PlayerPrefs.GetString("LastScene"));
 	}
 
-	// Saves the inverted preference and loads the previous scene.
+	// Saves the inverted and volume preferences and loads the previous scene.
 	public void Apply()
 	{
 		if (invertYToggle.GetComponent<Toggle>().isOn)
@@ -37,6 +47,8 @@ public class OptionsMenu : MonoBehaviour
 		else
 			PlayerPrefs.SetInt("Inverted", 0);
 		SceneManager.LoadScene(PlayerPrefs.GetString("LastScene"));
+		PlayerPrefs.SetFloat("bgmVol", bgmSlider.value);
+		PlayerPrefs.SetFloat("sfxVol", sfxSlider.value);
 	}
 
 	// Sets the background music volume in the master mixer.

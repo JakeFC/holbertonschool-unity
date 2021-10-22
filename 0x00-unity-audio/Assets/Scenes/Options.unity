@@ -1121,6 +1121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   invertYToggle: {fileID: 1630570950}
   masterMixer: {fileID: 24100000, guid: 3e1bf980f01cc6e498ef5f1e337e2aec, type: 2}
+  bgmSlider: {fileID: 1861416458}
+  sfxSlider: {fileID: 180188510}
 --- !u!1 &698917973
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,6 +56,7 @@ public class PauseMenu : MonoBehaviour
 	// Loads the MainMenu scene.
 	public void MainMenu()
 	{
+		unpaused.TransitionTo(0.01f);
 		backgroundMusic.Stop();
 		SceneManager.LoadScene("MainMenu");
 	}
@@ -63,6 +64,7 @@ public class PauseMenu : MonoBehaviour
 	// Loads the Options scene after saving the current's name to PlayerPrefs.
 	public void Options()
 	{
+		unpaused.TransitionTo(0.01f);
 		PlayerPrefs.SetString("LastScene", SceneManager.GetActiveScene().name);
 		SceneManager.LoadScene("Options");
 	}
