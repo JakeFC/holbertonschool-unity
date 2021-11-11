@@ -5,38 +5,29 @@ using Vuforia;
 
 public class ButtonPress : MonoBehaviour
 {
-    public VirtualButtonBehaviour[] buttons;
-    public Material EmailMtr;
     // Start is called before the first frame update
     void Start()
     {
-        foreach (VirtualButtonBehaviour button in buttons)
-        {
-            button.RegisterOnButtonPressed(OnButtonPressed);
-            button.RegisterOnButtonReleased(OnButtonReleased);
-        }
+
     }
 
-    public void OnButtonPressed(VirtualButtonBehaviour vb)
+    public void EmailClick()
     {
-        Debug.Log("BTN pressed");
-        EmailMtr.EnableKeyword("_EMISSION");
+        Application.OpenURL("mailto:jacobchavera@yahoo.com");
     }
 
-    public void OnButtonReleased(VirtualButtonBehaviour vb)
+    public void GithubClick()
     {
-        Debug.Log("BTN released");
-        EmailMtr.DisableKeyword("_EMISSION");
+        Application.OpenURL("Application.OpenURL");
     }
 
-    public void Click()
+    public void LinkedInClick()
     {
-        Debug.Log("Click");
+        Application.OpenURL("https://www.linkedin.com/in/jacob-chavera-929982205/");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MediumClick()
     {
-        
+        Application.OpenURL("https://medium.com/@2919");
     }
 }
