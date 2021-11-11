@@ -5,12 +5,18 @@ using Vuforia;
 
 public class ButtonPress : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
+    public GameObject[] objects;
 
+    public void SpawnObjects()
+    {
+        objects[0].SetActive(true);
     }
 
+    public void DestroyObjects()
+    {
+        foreach (GameObject obj in objects)
+            obj.SetActive(false);
+    }
     public void EmailClick()
     {
         Application.OpenURL("mailto:jacobchavera@yahoo.com");
@@ -18,7 +24,7 @@ public class ButtonPress : MonoBehaviour
 
     public void GithubClick()
     {
-        Application.OpenURL("Application.OpenURL");
+        Application.OpenURL("https://github.com/JakeFC");
     }
 
     public void LinkedInClick()
