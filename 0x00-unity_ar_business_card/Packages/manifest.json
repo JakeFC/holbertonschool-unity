@@ -1,5 +1,5 @@
 {
-    "dependencies": {
+  "dependencies": {
     "com.ptc.vuforia.engine": "file:com.ptc.vuforia.engine-10.2.5.tgz",
     "com.unity.collab-proxy": "1.7.1",
     "com.unity.ide.rider": "2.0.7",
@@ -8,7 +8,9 @@
     "com.unity.test-framework": "1.1.27",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.4.8",
+    "com.unity.toolchain.win-x86_64-linux-x86_64": "0.1.21-preview",
     "com.unity.ugui": "1.0.0",
+    "com.unity.xr.management": "4.2.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -40,5 +42,14 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
-  }
+  },
+  "scopedRegistries": [
+    {
+      "name": "com.HolbertonSchool.ARBusinessCard",
+      "url": "https://holbertonschool.com",
+      "scopes": [
+        "holbertonschool.com"
+      ]
+    }
+  ]
 }
