@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaneSelection : MonoBehaviour
 {
-	private Renderer _renderer;
+	private static Renderer _renderer;
 
     void Start()
     {
