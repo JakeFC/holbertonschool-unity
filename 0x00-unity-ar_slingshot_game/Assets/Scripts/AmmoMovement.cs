@@ -8,18 +8,12 @@ public class AmmoMovement : MonoBehaviour
 	public Camera rayCamera;
 	public GameObject ammoBall;
 	public GameObject center;
+	public Transform ammoOrigin;
 	private float _speed;
 	private bool _fired = false;
 	private bool _mouseDown = false;
-	private Vector3 _ballOGPosition;
-	private Quaternion _ballOGRotation;
 
 
-	void Start()
-	{
-		_ballOGPosition = ammoBall.transform.position;
-		_ballOGRotation = ammoBall.transform.rotation;
-	}
     void Update()
     {
 		if (Input.GetMouseButtonDown(0))
@@ -53,7 +47,7 @@ public class AmmoMovement : MonoBehaviour
 	void Fire()
 	{
 		// Fire speed scales with distance moved from starting position.
-		_speed = 30 * (Math.Abs(ammoBall.transform.position.x) + Math.Abs(ammoBall.transform.position.y - 3.2f));
+		_speed = 30 * (Math.Abs(ammoBall.transform.position.x) + Math.Abs(ammoBall.transform.position.y - ammoOrigin.position.y));
 		// Turns on physics on shooting.
 		ammoBall.GetComponent<Rigidbody>().isKinematic = false;
 		// Removes parent relationship to avoid physics interactions.
@@ -67,8 +61,8 @@ public class AmmoMovement : MonoBehaviour
 		transform.rotation = new Quaternion (0, 0, 0, 1);
 		ammoBall.transform.parent = transform;
 		ammoBall.GetComponent<Rigidbody>().isKinematic = true;
-		ammoBall.transform.position = _ballOGPosition;
-		ammoBall.transform.rotation = _ballOGRotation;
+		ammoBall.transform.position = ammoOrigin.position;
+		ammoBall.transform.rotation = ammoOrigin.rotation;
 		_fired = false;
 	}
 }
