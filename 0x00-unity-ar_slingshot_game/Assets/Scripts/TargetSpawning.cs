@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class TargetSpawning : MonoBehaviour
 {
 	public int targetNumber;
+	public int targetsMade = 0;
 	public GameObject target;
 	public Vector3[] verticeList;
-	private int _targetsMade = 0;
 	private System.Random _rd = new System.Random();
 	private int _randInt;
 
@@ -28,7 +28,7 @@ public class TargetSpawning : MonoBehaviour
 
     void Update()
     {
-        if (_targetsMade < targetNumber && Time.time % 1 < 0.003)
+        if (targetsMade < targetNumber && Time.time % 1 < 0.003)
 			SpawnTarget();
     }
 
@@ -44,7 +44,7 @@ public class TargetSpawning : MonoBehaviour
 			// 0.733 added to height of the target so it appears on top of the plane.
 			Instantiate(target, new Vector3(verticeList[_randInt].x, verticeList[_randInt].y + 0.733f,
 						verticeList[_randInt].z), new Quaternion(0, 0, 0, 1), transform);
-			_targetsMade++;
+			targetsMade++;
 		}
 	}
 }

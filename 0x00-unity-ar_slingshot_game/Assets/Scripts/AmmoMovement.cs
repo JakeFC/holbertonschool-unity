@@ -8,21 +8,21 @@ public class AmmoMovement : MonoBehaviour
 	public Camera rayCamera;
 	public GameObject ammoBall;
 	public GameObject center;
+	public GameObject ammoUI;
+	public GameObject playAgainButton;
 	public Transform ammoOrigin;
 	private float _speed;
 	private bool _fired = false;
 	private bool _mouseDown = false;
 
-
     void Update()
     {
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && !_mouseDown)
 			_mouseDown = true;
 		if (Input.GetMouseButtonUp(0) && _mouseDown && !_fired)
 		{
 			_mouseDown = false;
 			Fire();
-			_fired = true;
 		}
 		if (_mouseDown && !_fired)
 			MoveBall();
@@ -31,6 +31,7 @@ public class AmmoMovement : MonoBehaviour
 	// Moves the ball in the direction of the mouse.
 	void MoveBall()
 	{
+		Debug.Log(transform.rotation.ToString());
 		// Saves a ray object pointing from the camera to the mouse position.
 		Ray ray = rayCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -46,8 +47,9 @@ public class AmmoMovement : MonoBehaviour
 
 	void Fire()
 	{
+		_fired = true;
 		// Fire speed scales with distance moved from starting position.
-		_speed = 22 * (Math.Abs(ammoBall.transform.position.x - ammoOrigin.position.x)
+		_speed = 15 * (Math.Abs(ammoBall.transform.position.x - ammoOrigin.position.x)
 						+ Math.Abs(ammoBall.transform.position.y - ammoOrigin.position.y)
 						+ Math.Abs(ammoBall.transform.position.z - ammoOrigin.position.z));
 		// Turns on physics on shooting.
@@ -56,8 +58,12 @@ public class AmmoMovement : MonoBehaviour
 		ammoBall.transform.parent = null;
 		// Adds forward force on ball.
 		ammoBall.GetComponent<Rigidbody>().AddForce(ammoBall.transform.forward * _speed, ForceMode.Impulse);
+
+		ammoUI.GetComponent<AmmoCounter>().ShootOnce();
 	}
 
+	// Resets the object's rotation, as well as the entire ball object.
+	// Disables the object afterward if ammoCount is zero.
 	public void ResetBall()
 	{
 		transform.rotation = rayCamera.transform.rotation;
@@ -66,5 +72,10 @@ public class AmmoMovement : MonoBehaviour
 		ammoBall.transform.position = ammoOrigin.position;
 		ammoBall.transform.rotation = ammoOrigin.rotation;
 		_fired = false;
+		if (ammoUI.GetComponent<AmmoCounter>().ammoCount < 1)
+		{
+			playAgainButton.SetActive(true);
+			transform.gameObject.SetActive(false);
+		}
 	}
 }
