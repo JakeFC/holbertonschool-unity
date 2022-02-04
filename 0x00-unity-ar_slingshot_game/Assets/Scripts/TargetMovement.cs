@@ -7,42 +7,35 @@ using UnityEngine.AI;
 public class TargetMovement : MonoBehaviour
 {
 	private NavMeshAgent _target;
-	private Vector3[] _movePosition = new Vector3[] {new Vector3(-5,0,5),
-													new Vector3(0,0,5),
-													new Vector3(5,0,5),
-													new Vector3(-5,0,0),
-													new Vector3(5,0,0),
-													new Vector3(-5,0,-5),
-													new Vector3(0,0,-5),
-													new Vector3(5,0,-5),
-													new Vector3(0,0,0)};
+	private Vector3[] _verticeList;
 	private System.Random _rd = new System.Random();
-	private int _randNum, _last = 8;
+	private int _randNum, _last = -1;
 
     void Start()
     {
         _target = GetComponent<NavMeshAgent>();
+
+		// List of points on the plane are taken from the parent plane.
+		_verticeList = transform.parent.GetComponent<TargetSpawning>().verticeList;
     }
 
-    // Update is called once per frame
     void Update()
     {
+		// Direction updates every 1.3 seconds and 3.2 seconds.
 		if (Time.time % 1.3 < 0.1 || Time.time % 3.2 < 0.1)
 			RandomMove();
     }
 
+	// Moves the target to one of 121 points on the plane.
 	void RandomMove()
 	{
-		_randNum = _rd.Next(0, 7);
-		if (_randNum != _last)
+		_randNum = _rd.Next(0, 120);
+		// Number must always be different from the last.
+		while (_randNum == _last)
 		{
-			_target.destination = _movePosition[_randNum];
-			_last = _randNum;
+			_randNum = _rd.Next(0, 120);
 		}
-		else
-		{
-			_target.destination = _movePosition[8];
-			_last = 8;
-		}
+		_target.destination = _verticeList[_randNum];
+		_last = _randNum;
 	}
 }

@@ -47,7 +47,9 @@ public class AmmoMovement : MonoBehaviour
 	void Fire()
 	{
 		// Fire speed scales with distance moved from starting position.
-		_speed = 30 * (Math.Abs(ammoBall.transform.position.x) + Math.Abs(ammoBall.transform.position.y - ammoOrigin.position.y));
+		_speed = 30 * (Math.Abs(ammoBall.transform.position.x - ammoOrigin.position.x)
+						+ Math.Abs(ammoBall.transform.position.y - ammoOrigin.position.y)
+						+ Math.Abs(ammoBall.transform.position.z - ammoOrigin.position.z));
 		// Turns on physics on shooting.
 		ammoBall.GetComponent<Rigidbody>().isKinematic = false;
 		// Removes parent relationship to avoid physics interactions.
@@ -56,9 +58,9 @@ public class AmmoMovement : MonoBehaviour
 		ammoBall.GetComponent<Rigidbody>().AddForce(ammoBall.transform.forward * _speed, ForceMode.Impulse);
 	}
 
-	public void Reset()
+	public void ResetBall()
 	{
-		transform.rotation = new Quaternion (0, 0, 0, 1);
+		transform.rotation = rayCamera.transform.rotation;
 		ammoBall.transform.parent = transform;
 		ammoBall.GetComponent<Rigidbody>().isKinematic = true;
 		ammoBall.transform.position = ammoOrigin.position;

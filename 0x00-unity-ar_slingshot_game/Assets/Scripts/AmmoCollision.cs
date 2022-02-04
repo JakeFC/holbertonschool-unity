@@ -15,11 +15,11 @@ public class AmmoCollision : MonoBehaviour
     void Update()
     {
         if (transform.position.y < floor.transform.position.y)
-			_ammoMovement.Reset();
+			_ammoMovement.ResetBall();
     }
 
 	void OnCollisionEnter()
 	{
-		_ammoMovement.Reset();
+		_ammoMovement.ResetBall();
 	}
 }
