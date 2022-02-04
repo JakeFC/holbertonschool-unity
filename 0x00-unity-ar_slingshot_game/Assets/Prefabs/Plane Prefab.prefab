@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -4663222877196785975}
   m_Layer: 0
   m_Name: Plane Prefab
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,5 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2a1531b0be51c408c0dcba6ad45f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetNumber: 7
-  target: {fileID: 2103029548429608987, guid: 20ffe39dfdb599e4e97a6aacea309e4a, type: 3}
+  targetNumber: 5
+  target: {fileID: 5367291011386875274, guid: 20ffe39dfdb599e4e97a6aacea309e4a, type: 3}
+  verticeList: []

@@ -28,7 +28,7 @@ public class TargetSpawning : MonoBehaviour
 
     void Update()
     {
-        if (_targetsMade < targetNumber)
+        if (_targetsMade < targetNumber && Time.time % 1 < 0.003)
 			SpawnTarget();
     }
 

@@ -9,7 +9,8 @@ public class TargetMovement : MonoBehaviour
 	private NavMeshAgent _target;
 	private Vector3[] _verticeList;
 	private System.Random _rd = new System.Random();
-	private int _randNum, _last = -1;
+	private int _randNum, _oppositeFromLast, _last = -1;
+	private float _time = 0;
 
     void Start()
     {
@@ -21,8 +22,10 @@ public class TargetMovement : MonoBehaviour
 
     void Update()
     {
+		_time += Time.deltaTime;
+
 		// Direction updates every 1.3 seconds and 3.2 seconds.
-		if (Time.time % 1.3 < 0.1 || Time.time % 3.2 < 0.1)
+		if (_time % 4 < 0.1 || _time % 10 < 0.1)
 			RandomMove();
     }
 
@@ -38,4 +41,23 @@ public class TargetMovement : MonoBehaviour
 		_target.destination = _verticeList[_randNum];
 		_last = _randNum;
 	}
+
+	// Moves the target in the opposite of last direction.
+	//void MoveAway()
+	//{
+	//	// Finds the opposite vertex from previous move.
+	//	if (_last != -1)
+	//		_oppositeFromLast = 120 - _last;
+	//	else
+	//		_oppositeFromLast = 120 - _randNum;
+	//	_target.destination = _verticeList[_oppositeFromLast];
+	//	_last = _oppositeFromLast;
+	//}
+
+	//void OnCollisionEnter(Collision other)
+	//{
+	//
+	//	if (other.gameObject.CompareTag("Target"))
+	//		MoveAway();
+	//}
 }
