@@ -23,13 +23,14 @@ public class PlaneSelection : MonoBehaviour
 		{
 			if (rd.material.color != Color.green)
 				Destroy(rd.gameObject);
-			else
-				Destroy(rd.GetComponent<PlaneSelection>());
 		}
 		// Start spawning targets.
 		_renderer.GetComponent<TargetSpawning>().enabled = true;
 
 		// Enable the start button.
 		GameObject.FindWithTag("Start Button").SetActive(true);
+
+		// Destroy this script.
+		Destroy(_renderer.GetComponent<PlaneSelection>());
     }
 }
