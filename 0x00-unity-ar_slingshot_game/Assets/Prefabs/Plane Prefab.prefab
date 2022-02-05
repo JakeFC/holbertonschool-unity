@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 4533030021365738561}
   - component: {fileID: 4533030021365738560}
   - component: {fileID: 4533030021365738563}
+  - component: {fileID: 1231944273947570446}
+  - component: {fileID: 1440940477788911234}
   m_Layer: 0
   m_Name: Plane Prefab
   m_TagString: Floor
@@ -154,3 +156,29 @@ MonoBehaviour:
   targetsMade: 0
   target: {fileID: 5367291011386875274, guid: 20ffe39dfdb599e4e97a6aacea309e4a, type: 3}
   verticeList: []
+--- !u!114 &1231944273947570446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533030021365738562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520bb47c46cf8624fafb307b7d1b862a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Camera: {fileID: 0}
+--- !u!114 &1440940477788911234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533030021365738562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RaycastPrefab: {fileID: 0}

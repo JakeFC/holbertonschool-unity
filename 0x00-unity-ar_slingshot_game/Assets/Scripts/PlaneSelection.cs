@@ -15,21 +15,21 @@ public class PlaneSelection : MonoBehaviour
 	// component on the selected plane.
 	void OnMouseDown()
     {
+		_renderer.material.color = Color.green;
 		// Creates an array of ARPlane mesh renderers.
         Renderer[] renderers = (Renderer[]) Object.FindObjectsOfType(typeof(Renderer));
 
 		foreach(Renderer rd in renderers)
 		{
-			if (rd != _renderer)
+			if (rd.material.color != Color.green)
 				Destroy(rd.gameObject);
+			else
+				Destroy(rd.GetComponent<PlaneSelection>());
 		}
 		// Start spawning targets.
 		_renderer.GetComponent<TargetSpawning>().enabled = true;
 
 		// Enable the start button.
 		GameObject.FindWithTag("Start Button").SetActive(true);
-
-		// Disable this script.
-		Destroy(_renderer.GetComponent<PlaneSelection>());
     }
 }
