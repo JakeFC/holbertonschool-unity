@@ -27,8 +27,8 @@ public class PlaneSelection : MonoBehaviour
 		// Start spawning targets.
 		_renderer.GetComponent<TargetSpawning>().enabled = true;
 
-		// Enable the start button.
-		GameObject.FindWithTag("Start Button").SetActive(true);
+		// Enable the start button through its active parent.
+		GameObject.FindWithTag("Start Button").transform.GetChild(0).gameObject.SetActive(true);
 
 		// Destroy this script.
 		Destroy(_renderer.GetComponent<PlaneSelection>());

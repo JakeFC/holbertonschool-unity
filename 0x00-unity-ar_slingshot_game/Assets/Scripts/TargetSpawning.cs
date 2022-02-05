@@ -16,6 +16,7 @@ public class TargetSpawning : MonoBehaviour
     {
 		// Saves the list of 121 vertices for the plane.
         verticeList = gameObject.GetComponent<MeshFilter>().sharedMesh.vertices;
+		Debug.Log("verticeList length: " + verticeList.Length);
 
 		// Adds a NavMesh component if the plane doesn't have one.
 		if (gameObject.GetComponent<NavMeshSurface>() == null)
