@@ -7,6 +7,7 @@ TagManager:
   - Target
   - Floor
   - Ammo
+  - Start Button
   layers:
   - Default
   - TransparentFX

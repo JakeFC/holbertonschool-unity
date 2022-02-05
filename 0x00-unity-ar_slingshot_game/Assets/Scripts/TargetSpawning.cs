@@ -10,7 +10,7 @@ public class TargetSpawning : MonoBehaviour
 	public GameObject target;
 	public Vector3[] verticeList;
 	private System.Random _rd = new System.Random();
-	private int _randInt;
+	private int _randNum;
 
     void Start()
     {
@@ -36,15 +36,16 @@ public class TargetSpawning : MonoBehaviour
 	void SpawnTarget()
 	{
 		// Top and bottom rows are excluded here.
-		_randInt = _rd.Next(12, 108);
+		_randNum = _rd.Next(12, 108);
 
 		// Left and right columns are excluded here.
-		if (_randInt % 11 != 0 && _randInt % 11 != 10)
-		{
-			// 0.733 added to height of the target so it appears on top of the plane.
-			Instantiate(target, new Vector3(verticeList[_randInt].x, verticeList[_randInt].y + 0.733f,
-						verticeList[_randInt].z), new Quaternion(0, 0, 0, 1), transform);
-			targetsMade++;
-		}
+		while(_randNum % 11 == 0 || _randNum % 11 == 10)
+			_randNum = _rd.Next(12, 108);
+
+		// 0.733 added to height of the target so it appears on top of the plane.
+		// The plane is set as a parent object.
+		Instantiate(target, new Vector3(verticeList[_randNum].x, verticeList[_randNum].y + 0.733f,
+					verticeList[_randNum].z), new Quaternion(0, 0, 0, 1), transform);
+		targetsMade++;
 	}
 }

@@ -23,7 +23,13 @@ public class PlaneSelection : MonoBehaviour
 			if (rd != _renderer)
 				Destroy(rd.gameObject);
 		}
+		// Start spawning targets.
 		_renderer.GetComponent<TargetSpawning>().enabled = true;
+
+		// Enable the start button.
+		GameObject.FindWithTag("Start Button").SetActive(true);
+
+		// Disable this script.
 		Destroy(_renderer.GetComponent<PlaneSelection>());
     }
 }

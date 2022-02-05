@@ -10,10 +10,20 @@ public class AmmoMovement : MonoBehaviour
 	public GameObject center;
 	public GameObject ammoUI;
 	public GameObject playAgainButton;
+	public GameObject line;
 	public Transform ammoOrigin;
-	private float _speed;
 	private bool _fired = false;
 	private bool _mouseDown = false;
+	private float _speed
+	{
+		// Fire speed scales with distance moved from starting position.
+		get
+		{
+			return (15 * (Math.Abs(ammoBall.transform.position.x - ammoOrigin.position.x)
+						+ Math.Abs(ammoBall.transform.position.y - ammoOrigin.position.y)
+						+ Math.Abs(ammoBall.transform.position.z - ammoOrigin.position.z)));
+		}
+	}
 
     void Update()
     {
@@ -31,7 +41,8 @@ public class AmmoMovement : MonoBehaviour
 	// Moves the ball in the direction of the mouse.
 	void MoveBall()
 	{
-		Debug.Log(transform.rotation.ToString());
+		if (!line.activeSelf)
+			line.SetActive(true);
 		// Saves a ray object pointing from the camera to the mouse position.
 		Ray ray = rayCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -43,15 +54,17 @@ public class AmmoMovement : MonoBehaviour
 		// Rotates the ball object to face the center of the simulated slingshot, so
 		// it will fire in the correct direction.
 		ammoBall.transform.LookAt(center.transform);
+
+		line.GetComponent<TrajectoryPhysics>().UpdateTrajectory(ammoBall.transform.forward * _speed,
+																ammoBall.GetComponent<Rigidbody>(),
+																ammoBall.transform.position);
 	}
 
 	void Fire()
 	{
 		_fired = true;
-		// Fire speed scales with distance moved from starting position.
-		_speed = 15 * (Math.Abs(ammoBall.transform.position.x - ammoOrigin.position.x)
-						+ Math.Abs(ammoBall.transform.position.y - ammoOrigin.position.y)
-						+ Math.Abs(ammoBall.transform.position.z - ammoOrigin.position.z));
+		// Hide the line renderer by disabling it.
+		line.SetActive(false);
 		// Turns on physics on shooting.
 		ammoBall.GetComponent<Rigidbody>().isKinematic = false;
 		// Removes parent relationship to avoid physics interactions.
@@ -72,6 +85,8 @@ public class AmmoMovement : MonoBehaviour
 		ammoBall.transform.position = ammoOrigin.position;
 		ammoBall.transform.rotation = ammoOrigin.rotation;
 		_fired = false;
+
+		// If out of ammo, bring up the play again button and disable the ammo object to hide it.
 		if (ammoUI.GetComponent<AmmoCounter>().ammoCount < 1)
 		{
 			playAgainButton.SetActive(true);

@@ -32,32 +32,33 @@ public class TargetMovement : MonoBehaviour
 	// Moves the target to one of 121 points on the plane.
 	void RandomMove()
 	{
-		_randNum = _rd.Next(0, 120);
-		// Number must always be different from the last.
-		while (_randNum == _last)
-		{
-			_randNum = _rd.Next(0, 120);
-		}
+		// Top and bottom rows are excluded here.
+		_randNum = _rd.Next(12, 108);
+
+		// Left and right columns are excluded here.
+		while(_randNum % 11 == 0 || _randNum % 11 == 10 || _randNum == _last)
+			_randNum = _rd.Next(12, 108);
+		
 		_target.destination = _verticeList[_randNum];
 		_last = _randNum;
 	}
 
 	// Moves the target in the opposite of last direction.
-	//void MoveAway()
-	//{
-	//	// Finds the opposite vertex from previous move.
-	//	if (_last != -1)
-	//		_oppositeFromLast = 120 - _last;
-	//	else
-	//		_oppositeFromLast = 120 - _randNum;
-	//	_target.destination = _verticeList[_oppositeFromLast];
-	//	_last = _oppositeFromLast;
-	//}
+	void MoveAway()
+	{
+		// Finds the opposite vertex from previous move.
+		if (_last != -1)
+			_oppositeFromLast = 120 - _last;
+		else
+			_oppositeFromLast = 120 - _randNum;
+		_target.destination = _verticeList[_oppositeFromLast];
+		_last = _oppositeFromLast;
+	}
 
-	//void OnCollisionEnter(Collision other)
-	//{
-	//
-	//	if (other.gameObject.CompareTag("Target"))
-	//		MoveAway();
-	//}
+	void OnCollisionEnter(Collision other)
+	{
+	
+		if (other.gameObject.CompareTag("Target"))
+			MoveAway();
+	}
 }
