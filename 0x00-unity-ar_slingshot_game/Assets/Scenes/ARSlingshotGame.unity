@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 511302057}
   - component: {fileID: 511302058}
   - component: {fileID: 511302059}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1675,7 +1675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1158248366}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2003,7 +2003,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1361303558}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Ammo Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2189,7 +2189,7 @@ GameObject:
   - component: {fileID: 1552626154}
   - component: {fileID: 1552626153}
   - component: {fileID: 1552626152}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: RayCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2780,9 +2780,17 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1778925191}
+    - target: {fileID: 7474819547978501143, guid: b2a9ed5a51bb30d40833ade4e78137cd, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7474819548034699928, guid: b2a9ed5a51bb30d40833ade4e78137cd, type: 3}
       propertyPath: m_Name
       value: Ammo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474819548034699928, guid: b2a9ed5a51bb30d40833ade4e78137cd, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7474819548034699928, guid: b2a9ed5a51bb30d40833ade4e78137cd, type: 3}
       propertyPath: m_IsActive

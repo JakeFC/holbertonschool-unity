@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7474819547978501141}
   - component: {fileID: 7474819547978501136}
   - component: {fileID: 7474819547978501137}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Ammo Ball
   m_TagString: Ammo
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7474819548034699929}
   - component: {fileID: 7474819548034699942}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

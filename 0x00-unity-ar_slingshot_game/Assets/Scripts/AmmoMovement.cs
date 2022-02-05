@@ -27,9 +27,9 @@ public class AmmoMovement : MonoBehaviour
 
     void Update()
     {
-		if (Input.GetMouseButtonDown(0) && !_mouseDown)
+		if (Input.touchCount > 0 && !_mouseDown)
 			_mouseDown = true;
-		if (Input.GetMouseButtonUp(0) && _mouseDown && !_fired)
+		if (Input.touchCount == 0 && _mouseDown && !_fired)
 		{
 			_mouseDown = false;
 			Fire();
@@ -44,7 +44,7 @@ public class AmmoMovement : MonoBehaviour
 		if (!line.activeSelf)
 			line.SetActive(true);
 		// Saves a ray object pointing from the camera to the mouse position.
-		Ray ray = rayCamera.ScreenPointToRay(Input.mousePosition);
+		Ray ray = rayCamera.ScreenPointToRay(Input.GetTouch(0).position);
 
 		// Rotates the parent object in the same direction as the saved ray, thereby
 		// moving the child ball object in the same direction, with magnitude based
