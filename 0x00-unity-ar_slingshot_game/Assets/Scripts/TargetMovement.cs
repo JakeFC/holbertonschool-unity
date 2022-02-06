@@ -39,11 +39,11 @@ public class TargetMovement : MonoBehaviour
 	void RandomMove()
 	{
 		// A random vertex is chosen from the list.
-		_randNum = _rd.Next(0, _numVertices);
+		_randNum = _rd.Next(0, _numVertices - 1);
 
 		// Duplicates from last move are removed.
 		while (_randNum == _last)
-			_randNum = _rd.Next(0, _numVertices);
+			_randNum = _rd.Next(0, _numVertices - 1);
 
 		// Top and bottom rows are excluded here.
 		//_randNum = _rd.Next(12, 108);
