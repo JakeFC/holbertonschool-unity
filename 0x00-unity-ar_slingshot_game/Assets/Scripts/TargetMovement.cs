@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class TargetMovement : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class TargetMovement : MonoBehaviour
 		// Direction updates every 1.3 seconds and 4.2 seconds.
 		if (_time % 1.3f < 0.1f || _time % 4.2f < 0.1f)
 			RandomMove();
+
+		GameObject.FindWithTag("Debug").GetComponent<Text>().text =
+		(transform.parent.position.ToString() + "\n" +
+		transform.position.ToString());
     }
 
 	// Moves the target toward a random inner vertex.
