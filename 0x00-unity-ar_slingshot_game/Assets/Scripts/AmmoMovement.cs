@@ -19,7 +19,7 @@ public class AmmoMovement : MonoBehaviour
 		// Fire speed scales with distance moved from starting position.
 		get
 		{
-			return (15 * (Math.Abs(ammoBall.transform.position.x - ammoOrigin.position.x)
+			return (100 * (Math.Abs(ammoBall.transform.position.x - ammoOrigin.position.x)
 						+ Math.Abs(ammoBall.transform.position.y - ammoOrigin.position.y)
 						+ Math.Abs(ammoBall.transform.position.z - ammoOrigin.position.z)));
 		}

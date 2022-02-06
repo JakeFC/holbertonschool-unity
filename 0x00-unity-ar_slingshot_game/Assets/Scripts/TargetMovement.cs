@@ -27,10 +27,8 @@ public class TargetMovement : MonoBehaviour
 		_time += Time.deltaTime;
 
 		// Direction updates every 1.3 seconds and 3.2 seconds.
-		if (_time % 4 < 0.1 || _time % 10 < 0.1)
+		if (_time % .8f < 0.1f || _time % 2 < 0.1f)
 			RandomMove();
-
-		GameObject.FindWithTag("Debug").GetComponent<Text>().text = (transform.parent.name.ToString() + "\n" + transform.parent.position.ToString() + "\n" + transform.position.ToString());
     }
 
 	// Moves the target in a random direction.
@@ -56,28 +54,28 @@ public class TargetMovement : MonoBehaviour
 		switch(_randNum)
 		{
 			case 0:
-				_target.destination = new Vector3(_pos.x, _pos.y, _pos.z + 5);
+				_target.destination = new Vector3(_pos.x, _pos.y, _pos.z + .2f);
 				break;
 			case 1:
-				_target.destination = new Vector3(_pos.x + 2.5f, _pos.y, _pos.z + 2.5f);
+				_target.destination = new Vector3(_pos.x + .1f, _pos.y, _pos.z + .1f);
 				break;
 			case 2:
-				_target.destination = new Vector3(_pos.x + 5, _pos.y, _pos.z);
+				_target.destination = new Vector3(_pos.x + .2f, _pos.y, _pos.z);
 				break;
 			case 3:
-				_target.destination = new Vector3(_pos.x + 2.5f, _pos.y, _pos.z - 2.5f);
+				_target.destination = new Vector3(_pos.x + .1f, _pos.y, _pos.z - .1f);
 				break;
 			case 4:
-				_target.destination = new Vector3(_pos.x, _pos.y, _pos.z - 5);
+				_target.destination = new Vector3(_pos.x, _pos.y, _pos.z - .2f);
 				break;
 			case 5:
-				_target.destination = new Vector3(_pos.x - 2.5f, _pos.y, _pos.z - 2.5f);
+				_target.destination = new Vector3(_pos.x - .1f, _pos.y, _pos.z - .1f);
 				break;
 			case 6:
-				_target.destination = new Vector3(_pos.x - 5, _pos.y, _pos.z);
+				_target.destination = new Vector3(_pos.x - .2f, _pos.y, _pos.z);
 				break;
 			case 7:
-				_target.destination = new Vector3(_pos.x - 2.5f, _pos.y, _pos.z + 2.5f);
+				_target.destination = new Vector3(_pos.x - .1f, _pos.y, _pos.z + .1f);
 				break;
 		}
 		_last = _randNum;
@@ -101,28 +99,28 @@ public class TargetMovement : MonoBehaviour
 		switch(_last)
 		{
 			case 4:
-				_target.destination = new Vector3(_pos.x, _pos.y, _pos.z + 5);
+				_target.destination = new Vector3(_pos.x, _pos.y, _pos.z + .2f);
 				break;
 			case 5:
-				_target.destination = new Vector3(_pos.x + 2.5f, _pos.y, _pos.z + 2.5f);
+				_target.destination = new Vector3(_pos.x + .1f, _pos.y, _pos.z + .1f);
 				break;
 			case 6:
-				_target.destination = new Vector3(_pos.x + 5, _pos.y, _pos.z);
+				_target.destination = new Vector3(_pos.x + .2f, _pos.y, _pos.z);
 				break;
 			case 7:
-				_target.destination = new Vector3(_pos.x + 2.5f, _pos.y, _pos.z - 2.5f);
+				_target.destination = new Vector3(_pos.x + .1f, _pos.y, _pos.z - .1f);
 				break;
 			case 0:
-				_target.destination = new Vector3(_pos.x, _pos.y, _pos.z - 5);
+				_target.destination = new Vector3(_pos.x, _pos.y, _pos.z - .2f);
 				break;
 			case 1:
-				_target.destination = new Vector3(_pos.x - 2.5f, _pos.y, _pos.z - 2.5f);
+				_target.destination = new Vector3(_pos.x - .1f, _pos.y, _pos.z - .1f);
 				break;
 			case 2:
-				_target.destination = new Vector3(_pos.x - 5, _pos.y, _pos.z);
+				_target.destination = new Vector3(_pos.x - .2f, _pos.y, _pos.z);
 				break;
 			case 3:
-				_target.destination = new Vector3(_pos.x - 2.5f, _pos.y, _pos.z + 2.5f);
+				_target.destination = new Vector3(_pos.x - .1f, _pos.y, _pos.z + .1f);
 				break;
 		}
 

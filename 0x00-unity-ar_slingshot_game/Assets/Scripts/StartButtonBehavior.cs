@@ -8,6 +8,6 @@ public class StartButtonBehavior : MonoBehaviour
 
 	public void SpawnPlane()
 	{
-		Instantiate(planePrefab, new Vector3(0, 0, 7), new Quaternion(0, 0, 0, 1));
+		Instantiate(planePrefab, new Vector3(0, -1, 9), new Quaternion(0, 0, 0, 1));
 	}
 }
