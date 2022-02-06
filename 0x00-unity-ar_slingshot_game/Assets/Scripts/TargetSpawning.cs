@@ -16,8 +16,12 @@ public class TargetSpawning : MonoBehaviour
 
     void Start()
     {
-		// Saves the list of 121 vertices for the plane.
+		// Saves the list of vertices for the plane once its shape is locked in.
         verticeList = gameObject.GetComponent<MeshFilter>().sharedMesh.vertices;
+
+		// Finds the number of vertices in verticeList.
+		foreach(Vector3 vertex in verticeList)
+			numVertices++;
 
 		//// Manually updates the vertice list by the plane's position in world space,
 		// since the list is otherwise based on local position.
@@ -62,7 +66,7 @@ public class TargetSpawning : MonoBehaviour
 			numVertices++;
 
 		// Chooses a random vertex at which to spawn
-		_randNum = _rd.Next(0, numVertices);
+		_randNum = _rd.Next(0, numVertices - 1);
 
 		// Top and bottom rows are excluded here.
 		//_randNum = _rd.Next(12, 108);
