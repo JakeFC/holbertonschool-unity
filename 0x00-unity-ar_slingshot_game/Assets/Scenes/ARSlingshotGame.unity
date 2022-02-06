@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 289c3e61ed4c60644abeafe38ccebf32, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &234381941
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,14 +855,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642365594}
-  m_LocalRotation: {x: 0.14131376, y: -0, z: -0, w: 0.98996484}
-  m_LocalPosition: {x: 0, y: 3.82, z: -14.41}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 931449938}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 16.248, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &642365597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,7 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 5198330979532460942, guid: f068162f82fde8e4cade249dbb18be9e, type: 3}
+  m_PlanePrefab: {fileID: 5534347086612644388, guid: f068162f82fde8e4cade249dbb18be9e, type: 3}
   m_DetectionMode: 1
 --- !u!1 &705507993
 GameObject:
@@ -1368,7 +1368,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931449933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.081, z: -0.276}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 511302057}
@@ -2780,17 +2780,9 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1778925191}
-    - target: {fileID: 7474819547978501143, guid: b2a9ed5a51bb30d40833ade4e78137cd, type: 3}
-      propertyPath: m_Layer
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7474819548034699928, guid: b2a9ed5a51bb30d40833ade4e78137cd, type: 3}
       propertyPath: m_Name
       value: Ammo
-      objectReference: {fileID: 0}
-    - target: {fileID: 7474819548034699928, guid: b2a9ed5a51bb30d40833ade4e78137cd, type: 3}
-      propertyPath: m_Layer
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7474819548034699928, guid: b2a9ed5a51bb30d40833ade4e78137cd, type: 3}
       propertyPath: m_IsActive
