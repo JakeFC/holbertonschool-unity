@@ -35,6 +35,10 @@ public class TargetMovement : MonoBehaviour
 	// Moves the target toward a random inner vertex.
 	void RandomMove()
 	{
+		int i = 0;
+		foreach(Vector3 vertex in _verticeList)
+			i++;
+		GameObject.FindWithTag("Debug3").GetComponent<Text>().text = i.ToString();
 		// Top and bottom rows are excluded here.
 		_randNum = _rd.Next(12, 108);
 
@@ -48,10 +52,6 @@ public class TargetMovement : MonoBehaviour
 		//GameObject.FindWithTag("Debug3").GetComponent<Text>().text =
 		//(_verticeList[_randNum] + transform.parent.position).ToString();
 
-		int i = 0;
-		foreach(Vector3 vertex in _verticeList)
-			i++;
-		GameObject.FindWithTag("Debug3").GetComponent<Text>().text = i.ToString();
 		//_pos = transform.position;
 		//_randNum = _rd.Next(0, 7);
 
