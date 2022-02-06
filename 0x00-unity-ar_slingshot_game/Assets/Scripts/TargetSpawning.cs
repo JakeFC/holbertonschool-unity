@@ -6,6 +6,7 @@ public class TargetSpawning : MonoBehaviour
 {
 	public int targetNumber = 5;
 	public int targetsMade = 0;
+	public int numVertices = 0;
 	public GameObject target;
 	public Vector3[] verticeList;
 	private System.Random _rd = new System.Random();
@@ -56,6 +57,13 @@ public class TargetSpawning : MonoBehaviour
 	{
 		_pos = transform.position;
 
+		// Finds the number of vertices in verticeList.
+		foreach(Vector3 vertex in verticeList)
+			numVertices++;
+
+		// Chooses a random vertex at which to spawn
+		_randNum = _rd.Next(0, numVertices);
+
 		// Top and bottom rows are excluded here.
 		//_randNum = _rd.Next(12, 108);
 
@@ -66,17 +74,18 @@ public class TargetSpawning : MonoBehaviour
 		// 0.053 added to height of the target so it appears on top of the plane.
 		// The plane is set as a parent object. Position of the plane must be added
 		// to convert from local to worldspace.
-		//Instantiate(target, new Vector3(verticeList[_randNum].x + _pos.x,
-		//			verticeList[_randNum].y + 0.053f + _pos.y,
-		//			verticeList[_randNum].z + _pos.z), new Quaternion(0, 0, 0, 1), transform);
+		Instantiate(target, new Vector3(verticeList[_randNum].x + _pos.x,
+					verticeList[_randNum].y + 0.053f + _pos.y,
+					verticeList[_randNum].z + _pos.z), new Quaternion(0, 0, 0, 1), transform);
 
 		GameObject.FindWithTag("Debug2").GetComponent<Text>().text =
 		new Vector3(verticeList[_randNum].x + _pos.x,
 					verticeList[_randNum].y + 0.053f + _pos.y,
 					verticeList[_randNum].z + _pos.z).ToString();
+
 		// Spawns a target slightly above the center of the plane with plane as parent.
-		Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.053f,
-					transform.position.z), new Quaternion(0, 0, 0, 1), transform);
+		//Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.053f,
+		//			transform.position.z), new Quaternion(0, 0, 0, 1), transform);
 
 		targetsMade++;
 	}

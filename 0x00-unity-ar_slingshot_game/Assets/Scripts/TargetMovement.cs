@@ -7,7 +7,7 @@ public class TargetMovement : MonoBehaviour
 	private NavMeshAgent _target;
 	private Vector3[] _verticeList;
 	private System.Random _rd = new System.Random();
-	private int _randNum = 4, _oppositeFromLast, _last = -1;
+	private int _randNum = 0, _oppositeFromLast, _last = -1, _numVertices;
 	private float _time = 0;
 	private Vector3 _pos;
 
@@ -17,6 +17,9 @@ public class TargetMovement : MonoBehaviour
 
 		// List of points on the plane are taken from the parent plane.
 		_verticeList = transform.parent.GetComponent<TargetSpawning>().verticeList;
+
+		// Number of vertices is also taken from parent plane.
+		_numVertices = transform.parent.GetComponent<TargetSpawning>().numVertices;
     }
 
     void Update()
@@ -35,22 +38,25 @@ public class TargetMovement : MonoBehaviour
 	// Moves the target toward a random inner vertex.
 	void RandomMove()
 	{
-		int i = 0;
-		foreach(Vector3 vertex in _verticeList)
-			i++;
-		GameObject.FindWithTag("Debug3").GetComponent<Text>().text = i.ToString();
+		// A random vertex is chosen from the list.
+		_randNum = _rd.Next(0, _numVertices);
+
+		// Duplicates from last move are removed.
+		while (_randNum == _last)
+			_randNum = _rd.Next(0, _numVertices);
+
 		// Top and bottom rows are excluded here.
-		_randNum = _rd.Next(12, 108);
+		//_randNum = _rd.Next(12, 108);
 
 		// Left and right columns are excluded here, as well as duplicates from last move.
-		while(_randNum % 11 == 0 || _randNum % 11 == 10 || _randNum == _last)
-			_randNum = _rd.Next(12, 108);
+		//while(_randNum % 11 == 0 || _randNum % 11 == 10 || _randNum == _last)
+		//	_randNum = _rd.Next(12, 108);
 		
 		// Add parent position to convert from local to worldspace.
 		_target.destination = _verticeList[_randNum] + transform.parent.position;
 
-		//GameObject.FindWithTag("Debug3").GetComponent<Text>().text =
-		//(_verticeList[_randNum] + transform.parent.position).ToString();
+		GameObject.FindWithTag("Debug3").GetComponent<Text>().text =
+		(_verticeList[_randNum] + transform.parent.position).ToString();
 
 		//_pos = transform.position;
 		//_randNum = _rd.Next(0, 7);
@@ -95,9 +101,9 @@ public class TargetMovement : MonoBehaviour
 	{
 		// Finds the opposite vertex from previous move.
 		if (_last != -1)
-			_oppositeFromLast = 120 - _last;
+			_oppositeFromLast = _numVertices - _last;
 		else
-			_oppositeFromLast = 120 - _randNum;
+			_oppositeFromLast = _numVertices - _randNum;
 
 		// Add parent position to convert from local to worldspace.
 		_target.destination = _verticeList[_oppositeFromLast] + transform.parent.position;
