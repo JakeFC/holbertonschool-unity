@@ -10,21 +10,21 @@ public class TargetSpawning : MonoBehaviour
 	private System.Random _rd = new System.Random();
 	private int _randNum;
 	private float _lastSpawnTime = -1;
+	private Vector3 _pos;
 
     void Start()
     {
 		// Saves the list of 121 vertices for the plane.
         verticeList = gameObject.GetComponent<MeshFilter>().sharedMesh.vertices;
 
-		// Manually updates the vertice list by the plane's position in world space,
+		//// Manually updates the vertice list by the plane's position in world space,
 		// since the list is otherwise based on local position.
-		for (int i = 0; i < 120; i++)
-		{
-			verticeList[i] = new Vector3(verticeList[i].x + transform.position.x,
-										verticeList[i].y + transform.position.y,
-										verticeList[i].z + transform.position.z);
-			Debug.Log(verticeList[i].ToString());
-		}
+		//for (int i = 0; i < 120; i++)
+		//{
+		//	verticeList[i] = new Vector3(verticeList[i].x + transform.position.x,
+		//								verticeList[i].y + transform.position.y,
+		//								verticeList[i].z + transform.position.z);
+		//}
 
 		// Adds a NavMesh component if the plane doesn't have one.
 		if (gameObject.GetComponent<NavMeshSurface>() == null)
@@ -53,6 +53,8 @@ public class TargetSpawning : MonoBehaviour
 	// Attemps to spawn a target on one of the plane's inner vertices.
 	void SpawnTarget()
 	{
+		_pos = transform.position;
+
 		// Top and bottom rows are excluded here.
 		_randNum = _rd.Next(12, 108);
 
@@ -61,9 +63,11 @@ public class TargetSpawning : MonoBehaviour
 			_randNum = _rd.Next(12, 108);
 
 		// 0.053 added to height of the target so it appears on top of the plane.
-		// The plane is set as a parent object.
-		Instantiate(target, new Vector3(verticeList[_randNum].x, verticeList[_randNum].y + 0.053f,
-					verticeList[_randNum].z), new Quaternion(0, 0, 0, 1), transform);
+		// The plane is set as a parent object. Position of the plane must be added
+		// to convert from local to worldspace.
+		Instantiate(target, new Vector3(verticeList[_randNum].x + _pos.x,
+					verticeList[_randNum].y + 0.053f + _pos.y,
+					verticeList[_randNum].z + _pos.z), new Quaternion(0, 0, 0, 1), transform);
 
 		//// Spawns a target slightly above the center of the plane with plane as parent.
 		//Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.053f,

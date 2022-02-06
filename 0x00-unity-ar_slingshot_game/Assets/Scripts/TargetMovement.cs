@@ -42,7 +42,8 @@ public class TargetMovement : MonoBehaviour
 		while(_randNum % 11 == 0 || _randNum % 11 == 10 || _randNum == _last)
 			_randNum = _rd.Next(12, 108);
 		
-		_target.destination = _verticeList[_randNum];
+		// Add parent position to convert from local to worldspace.
+		_target.destination = _verticeList[_randNum] + transform.parent.position;
 
 		//_pos = transform.position;
 		//_randNum = _rd.Next(0, 7);
@@ -90,7 +91,9 @@ public class TargetMovement : MonoBehaviour
 			_oppositeFromLast = 120 - _last;
 		else
 			_oppositeFromLast = 120 - _randNum;
-		_target.destination = _verticeList[_oppositeFromLast];
+
+		// Add parent position to convert from local to worldspace.
+		_target.destination = _verticeList[_oppositeFromLast] + transform.parent.position;
 		_last = _oppositeFromLast;
 
 		//if (_last == -1)
