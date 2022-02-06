@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class TargetSpawning : MonoBehaviour
 {
-	public int targetNumber;
+	public int targetNumber = 5;
 	public int targetsMade = 0;
 	public GameObject target;
 	//public Vector3[] verticeList;
@@ -47,8 +47,11 @@ public class TargetSpawning : MonoBehaviour
 		//Instantiate(target, new Vector3(verticeList[_randNum].x, verticeList[_randNum].y + 0.733f,
 		//			verticeList[_randNum].z), new Quaternion(0, 0, 0, 1), transform);
 
-		// Spawns a target in the center of the plane with plane as parent.
-		Instantiate(target, transform.position, new Quaternion(0, 0, 0, 1), transform);
+		// Spawns a target slightly above the center of the plane with plane as parent.
+		Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.73f,
+					transform.position.z), new Quaternion(0, 0, 0, 1), transform);
+
+		//Instantiate(target, transform, false);
 
 		targetsMade++;
 	}
