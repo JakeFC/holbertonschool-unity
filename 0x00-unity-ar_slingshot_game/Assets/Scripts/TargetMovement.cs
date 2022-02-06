@@ -52,11 +52,15 @@ public class TargetMovement : MonoBehaviour
 		//while(_randNum % 11 == 0 || _randNum % 11 == 10 || _randNum == _last)
 		//	_randNum = _rd.Next(12, 108);
 		
-		// Add parent position to convert from local to worldspace.
-		_target.destination = _verticeList[_randNum] + transform.parent.position;
+		// Add parent position and spawn height difference to convert from local to worldspace.
+		_target.destination = _verticeList[_randNum] + transform.parent.position + new Vector3(0, 0.1f,0);
+
+		int i = 0;
+		foreach(Vector3 vertex in _verticeList)
+			i++;
 
 		GameObject.FindWithTag("Debug3").GetComponent<Text>().text =
-		(_verticeList[_randNum] + transform.parent.position).ToString();
+		(_verticeList[_randNum] + transform.parent.position).ToString() + i.ToString();
 
 		//_pos = transform.position;
 		//_randNum = _rd.Next(0, 7);
