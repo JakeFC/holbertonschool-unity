@@ -16,7 +16,7 @@ public class TargetSpawning : MonoBehaviour
     void Start()
     {
 		// Saves the list of 121 vertices for the plane.
-        verticeList = gameObject.GetComponent<MeshCollider>().sharedMesh.vertices;
+        verticeList = gameObject.GetComponent<MeshFilter>().sharedMesh.vertices;
 
 		//// Manually updates the vertice list by the plane's position in world space,
 		// since the list is otherwise based on local position.
@@ -57,26 +57,26 @@ public class TargetSpawning : MonoBehaviour
 		_pos = transform.position;
 
 		// Top and bottom rows are excluded here.
-		_randNum = _rd.Next(12, 108);
+		//_randNum = _rd.Next(12, 108);
 
 		// Left and right columns are excluded here.
-		while(_randNum % 11 == 0 || _randNum % 11 == 10)
-			_randNum = _rd.Next(12, 108);
+		//while(_randNum % 11 == 0 || _randNum % 11 == 10)
+		//	_randNum = _rd.Next(12, 108);
 
 		// 0.053 added to height of the target so it appears on top of the plane.
 		// The plane is set as a parent object. Position of the plane must be added
 		// to convert from local to worldspace.
-		Instantiate(target, new Vector3(verticeList[_randNum].x + _pos.x,
-					verticeList[_randNum].y + 0.053f + _pos.y,
-					verticeList[_randNum].z + _pos.z), new Quaternion(0, 0, 0, 1), transform);
+		//Instantiate(target, new Vector3(verticeList[_randNum].x + _pos.x,
+		//			verticeList[_randNum].y + 0.053f + _pos.y,
+		//			verticeList[_randNum].z + _pos.z), new Quaternion(0, 0, 0, 1), transform);
 
 		GameObject.FindWithTag("Debug2").GetComponent<Text>().text =
 		new Vector3(verticeList[_randNum].x + _pos.x,
 					verticeList[_randNum].y + 0.053f + _pos.y,
 					verticeList[_randNum].z + _pos.z).ToString();
-		//// Spawns a target slightly above the center of the plane with plane as parent.
-		//Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.053f,
-		//			transform.position.z), new Quaternion(0, 0, 0, 1), transform);
+		// Spawns a target slightly above the center of the plane with plane as parent.
+		Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.053f,
+					transform.position.z), new Quaternion(0, 0, 0, 1), transform);
 
 		targetsMade++;
 	}
