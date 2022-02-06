@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class TargetSpawning : MonoBehaviour
 {
@@ -69,6 +70,10 @@ public class TargetSpawning : MonoBehaviour
 					verticeList[_randNum].y + 0.053f + _pos.y,
 					verticeList[_randNum].z + _pos.z), new Quaternion(0, 0, 0, 1), transform);
 
+		GameObject.FindWithTag("Debug2").GetComponent<Text>().text =
+		new Vector3(verticeList[_randNum].x + _pos.x,
+					verticeList[_randNum].y + 0.053f + _pos.y,
+					verticeList[_randNum].z + _pos.z).ToString();
 		//// Spawns a target slightly above the center of the plane with plane as parent.
 		//Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.053f,
 		//			transform.position.z), new Quaternion(0, 0, 0, 1), transform);

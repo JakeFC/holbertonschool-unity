@@ -45,6 +45,9 @@ public class TargetMovement : MonoBehaviour
 		// Add parent position to convert from local to worldspace.
 		_target.destination = _verticeList[_randNum] + transform.parent.position;
 
+		GameObject.FindWithTag("Debug3").GetComponent<Text>().text =
+		(_verticeList[_randNum] + transform.parent.position).ToString();
+
 		//_pos = transform.position;
 		//_randNum = _rd.Next(0, 7);
 
