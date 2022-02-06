@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class TargetMovement : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class TargetMovement : MonoBehaviour
 		// Direction updates every 1.3 seconds and 3.2 seconds.
 		if (_time % 4 < 0.1 || _time % 10 < 0.1)
 			RandomMove();
+
+		GameObject.FindWithTag("Debug").GetComponent<Text>().text = (transform.parent.name.ToString() + transform.parent.position.ToString());
     }
 
 	// Moves the target in a random direction.
