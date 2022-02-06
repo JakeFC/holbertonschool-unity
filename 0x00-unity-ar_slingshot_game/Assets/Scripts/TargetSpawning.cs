@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class TargetSpawning : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class TargetSpawning : MonoBehaviour
     {
         if (targetsMade < targetNumber && Time.time % 1 < 0.003)
 			SpawnTarget();
+		GameObject.FindWithTag("Debug").GetComponent<Text>().text = transform.position.ToString();
     }
 
 	// Attemps to spawn a target on one of the plane's inner vertices.
