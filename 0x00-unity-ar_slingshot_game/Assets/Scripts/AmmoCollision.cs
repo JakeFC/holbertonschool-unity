@@ -18,15 +18,16 @@ public class AmmoCollision : MonoBehaviour
 	}
     void Update()
     {
-        if (transform.position.y < _floor.transform.position.y)
+        if (transform.position.y < _floor.transform.position.y && _ammoMovement.fired)
 			_ammoMovement.ResetBall();
     }
 
 	void OnCollisionEnter(Collision other)
 	{
-
 		if (other.gameObject.CompareTag("Target"))
 			scoreText.text = (int.Parse(scoreText.text) + 10).ToString();
+		if (_ammoMovement.fired == false)
+			return;
 		_ammoMovement.ResetBall();
 	}
 }

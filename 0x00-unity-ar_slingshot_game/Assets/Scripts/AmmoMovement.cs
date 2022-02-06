@@ -12,7 +12,7 @@ public class AmmoMovement : MonoBehaviour
 	public GameObject playAgainButton;
 	public GameObject line;
 	public Transform ammoOrigin;
-	private bool _fired = false;
+	public bool fired = false;
 	private bool _mouseDown = false;
 	private float _speed
 	{
@@ -29,12 +29,12 @@ public class AmmoMovement : MonoBehaviour
     {
 		if (Input.touchCount > 0 && !_mouseDown)
 			_mouseDown = true;
-		if (Input.touchCount == 0 && _mouseDown && !_fired)
+		if (Input.touchCount == 0 && _mouseDown && !fired)
 		{
 			_mouseDown = false;
 			Fire();
 		}
-		if (_mouseDown && !_fired)
+		if (_mouseDown && !fired)
 			MoveBall();
     }
 
@@ -45,6 +45,7 @@ public class AmmoMovement : MonoBehaviour
 			line.SetActive(true);
 		// Saves a ray object pointing from the camera to the mouse position.
 		Ray ray = rayCamera.ScreenPointToRay(Input.GetTouch(0).position);
+		Debug.Log(ray.direction);
 
 		// Rotates the parent object in the same direction as the saved ray, thereby
 		// moving the child ball object in the same direction, with magnitude based
@@ -62,7 +63,7 @@ public class AmmoMovement : MonoBehaviour
 
 	void Fire()
 	{
-		_fired = true;
+		fired = true;
 		// Hide the line renderer by disabling it.
 		line.SetActive(false);
 		// Turns on physics on shooting.
@@ -84,7 +85,7 @@ public class AmmoMovement : MonoBehaviour
 		ammoBall.GetComponent<Rigidbody>().isKinematic = true;
 		ammoBall.transform.position = ammoOrigin.position;
 		ammoBall.transform.rotation = ammoOrigin.rotation;
-		_fired = false;
+		fired = false;
 
 		// If out of ammo, bring up the play again button and disable the ammo object to hide it.
 		if (ammoUI.GetComponent<AmmoCounter>().ammoCount < 1)
