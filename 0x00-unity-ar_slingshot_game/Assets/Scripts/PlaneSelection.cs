@@ -14,13 +14,14 @@ public class PlaneSelection : MonoBehaviour
 	// component on the selected plane.
 	void OnMouseDown()
     {
-		_renderer.material.color = Color.green;
+		//_renderer.material.color = Color.green;
 		// Creates an array of ARPlane mesh renderers.
         Renderer[] renderers = (Renderer[]) Object.FindObjectsOfType(typeof(Renderer));
 
 		foreach(Renderer rd in renderers)
 		{
-			if (rd.material.color != Color.green)
+			//if (rd.material.color != Color.green)
+			if (rd != _renderer)
 				Destroy(rd.gameObject);
 		}
 		// Ends search for new planes.
