@@ -30,7 +30,7 @@ public class TargetMovement : MonoBehaviour
 		if (_time % 4 < 0.1 || _time % 10 < 0.1)
 			RandomMove();
 
-		GameObject.FindWithTag("Debug").GetComponent<Text>().text = (transform.parent.name.ToString() + transform.parent.position.ToString());
+		GameObject.FindWithTag("Debug").GetComponent<Text>().text = (transform.parent.name.ToString() + "\n" + transform.parent.position.ToString());
     }
 
 	// Moves the target in a random direction.
