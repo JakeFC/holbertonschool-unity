@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class PlaneSelection : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class PlaneSelection : MonoBehaviour
 			if (rd.material.color != Color.green)
 				Destroy(rd.gameObject);
 		}
+		// Ends search for new planes.
+		GameObject.FindWithTag("Origin").GetComponent<ARPlaneManager>().enabled = false;
+
 		// Start spawning targets.
 		_renderer.GetComponent<TargetSpawning>().enabled = true;
 

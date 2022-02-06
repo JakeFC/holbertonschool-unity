@@ -9,6 +9,7 @@ TagManager:
   - Ammo
   - Start Button
   - Debug
+  - Origin
   layers:
   - Default
   - TransparentFX
