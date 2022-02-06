@@ -49,7 +49,7 @@ public class TargetSpawning : MonoBehaviour
 		//			verticeList[_randNum].z), new Quaternion(0, 0, 0, 1), transform);
 
 		// Spawns a target slightly above the center of the plane with plane as parent.
-		Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.73f,
+		Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.073f,
 					transform.position.z), new Quaternion(0, 0, 0, 1), transform);
 
 		//Instantiate(target, transform, false);

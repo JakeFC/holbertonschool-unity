@@ -45,7 +45,6 @@ public class AmmoMovement : MonoBehaviour
 			line.SetActive(true);
 		// Saves a ray object pointing from the camera to the mouse position.
 		Ray ray = rayCamera.ScreenPointToRay(Input.GetTouch(0).position);
-		Debug.Log(ray.direction);
 
 		// Rotates the parent object in the same direction as the saved ray, thereby
 		// moving the child ball object in the same direction, with magnitude based
