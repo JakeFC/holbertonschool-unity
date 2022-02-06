@@ -12,6 +12,7 @@ public class TargetSpawning : MonoBehaviour
 	//public Vector3[] verticeList;
 	private System.Random _rd = new System.Random();
 	private int _randNum;
+	private float _lastSpawnTime = -1;
 
     void Start()
     {
@@ -27,15 +28,19 @@ public class TargetSpawning : MonoBehaviour
 		// Sets NavMeshSurface script to use mesh collider instead of renderer for shape info, since
 		// the mesh renderer will be disabled.
 		gameObject.GetComponent<NavMeshSurface>().useGeometry = NavMeshCollectGeometry.PhysicsColliders;
-		
+
 		// Builds the actual NavMesh.
 		gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
     void Update()
     {
-        if (targetsMade < targetNumber && Time.time % 1 < 0.003)
+		// If the goal is not met and it's been at least a second since last spawn, spawn again.
+        if (targetsMade < targetNumber && Time.time - _lastSpawnTime > 1)
+		{
+			_lastSpawnTime = Time.time;
 			SpawnTarget();
+		}
     }
 
 	// Attemps to spawn a target on one of the plane's inner vertices.
