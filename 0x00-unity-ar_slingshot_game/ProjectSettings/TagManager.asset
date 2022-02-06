@@ -8,6 +8,7 @@ TagManager:
   - Floor
   - Ammo
   - Start Button
+  - Debug
   layers:
   - Default
   - TransparentFX
