@@ -12,6 +12,7 @@ public class AmmoMovement : MonoBehaviour
 	public Transform ammoOrigin;
 	public bool fired = false;
 	private bool _mouseDown = false;
+	private float _timeExisting;
 	private float _speed
 	{
 		// Fire speed scales with distance moved from starting position.
@@ -23,9 +24,15 @@ public class AmmoMovement : MonoBehaviour
 		}
 	}
 
+	// Keep track of time since enabled so touch isn't registered as input when start
+	// button is pressed.
+	void Start()
+	{
+		_timeExisting = Time.timeSinceLevelLoad;
+	}
     void Update()
     {
-		if (Input.touchCount > 0 && !_mouseDown)
+		if (Input.touchCount > 0 && !_mouseDown && _timeExisting > 0.5f)
 			_mouseDown = true;
 		if (Input.touchCount == 0 && _mouseDown && !fired)
 		{
