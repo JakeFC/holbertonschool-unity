@@ -16,7 +16,7 @@ public class TargetSpawning : MonoBehaviour
     void Start()
     {
 		// Saves the list of 121 vertices for the plane.
-        verticeList = gameObject.GetComponent<MeshFilter>().sharedMesh.vertices;
+        verticeList = gameObject.GetComponent<MeshCollider>().sharedMesh.vertices;
 
 		//// Manually updates the vertice list by the plane's position in world space,
 		// since the list is otherwise based on local position.
