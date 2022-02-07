@@ -15,7 +15,7 @@ public class TrajectoryPhysics : MonoBehaviour
 		Vector3 velocity = (forceVector / rigidBody.mass) * Time.fixedDeltaTime;
 
 		// Physics equations wouldn't work here for some reason. Made large enough for long trajectories.
-		float FlightDuration = 60;
+		float FlightDuration = 70;
 
 		//float FlightDuration = (2 * velocity.y) / -Physics.gravity.y;
 		//float FlightDuration = (float)(velocity.y + Math.Sqrt(velocity.y * velocity.y + 2 * -Physics.gravity.y *
