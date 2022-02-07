@@ -13,10 +13,13 @@ public class TargetMovement : MonoBehaviour
 	private float _time = 0;
 	//private Vector3 _pos;
 	private float _distance;
+	private float _heightOffset = 0.1f;
+	private float _lastCollision = -1;
 
     void Start()
     {
 		_baseScale = transform.localScale;
+		_heightOffset = transform.parent.GetComponent<TargetSpawning>().heightOffset;
 
         //_target = GetComponent<NavMeshAgent>();
 
@@ -59,8 +62,19 @@ public class TargetMovement : MonoBehaviour
 		//while(_randNum % 11 == 0 || _randNum % 11 == 10 || _randNum == _last)
 		//	_randNum = _rd.Next(12, 108);
 		
-		// Add parent position and spawn height difference to convert from local to worldspace.
-		_destination = _verticeList[_randNum] + transform.parent.position + new Vector3(0, 0.1f,0);
+		// Add parent position to convert from local to worldspace.
+		_destination = _verticeList[_randNum] + transform.parent.position;
+
+		// Distance is measured from the camera to the destination.
+		_distance = Math.Abs(Vector3.Distance(GameObject.FindWithTag("MainCamera").transform.position,
+							_destination));
+
+		// Add a y-offset to the destination that scales with expected size change by checking distance,
+		// without going too far into exponential growth.
+		if (_distance > 0.5f)
+			_destination.y += _heightOffset / (2 * _distance);
+		else
+			_destination.y += _heightOffset;
 
 		//_pos = transform.position;
 		//_randNum = _rd.Next(0, 7);
@@ -109,8 +123,20 @@ public class TargetMovement : MonoBehaviour
 		else
 			_oppositeFromLast = _numVertices - _randNum;
 
-		// Add parent position and spawn height offset to convert from local to worldspace.
-		_destination = _verticeList[_oppositeFromLast] + transform.parent.position + new Vector3(0, 0.1f,0);
+		// Add parent position to convert from local to worldspace.
+		_destination = _verticeList[_oppositeFromLast] + transform.parent.position;
+
+		// Distance is measured from the camera to the destination.
+		_distance = Math.Abs(Vector3.Distance(GameObject.FindWithTag("MainCamera").transform.position,
+							_destination));
+
+		// Add a y-offset to the destination that scales with expected size change by checking distance,
+		// without going too far into exponential growth.
+		if (_distance > 0.5f)
+			_destination.y += _heightOffset / (2 * _distance);
+		else
+			_destination.y += _heightOffset;
+
 		_last = _oppositeFromLast;
 
 		//if (_last == -1)
@@ -150,24 +176,36 @@ public class TargetMovement : MonoBehaviour
 		//	_last -= 4;
 		//else
 		//	_last += 4;
+
+		_lastCollision = Time.time;
 	}
 
+	// Reverses target direction when hitting another target, at most every half-second.
 	void OnCollisionEnter(Collision other)
 	{
-		if (other.gameObject.CompareTag("Target"))
+		if (other.gameObject.CompareTag("Target") && Time.time - _lastCollision > 0)
 			MoveAway();
 	}
 
-	// Updates scale of the target 
+	// Updates scale and height of the target.
 	void UpdateScale()
 	{
 		// Distance is measured from the camera to the target.
 		_distance = Math.Abs(Vector3.Distance(GameObject.FindWithTag("MainCamera").transform.position,
 							transform.position));
 
-		// As long as we're not dividing by 0, scale target to cut in half for every
-		// meter away from camera.
+		// Scale target to cut in half for every meter away from camera and change
+		// height to match, stopping height scaling before exponential growth gets out of
+		// hand, and growth scaling only when dividing by 0.
 		if (_distance > 0)
 			transform.localScale = _baseScale / (2 * _distance);
+		if (_distance > 0.5f)
+			transform.localPosition = new Vector3(transform.localPosition.x,
+												_heightOffset / (2 * _distance),
+												transform.localPosition.z);
+		else
+			transform.localPosition = new Vector3(transform.localPosition.x,
+												_heightOffset,
+												transform.localPosition.z);
 	}
 }

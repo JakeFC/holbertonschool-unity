@@ -1,18 +1,19 @@
+using System;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.UI;
 
 public class TargetSpawning : MonoBehaviour
 {
 	public int targetNumber = 5;
 	public int targetsMade = 0;
 	public int numVertices = 0;
+	public float heightOffset = 0.1f;
 	public GameObject target;
 	public Vector3[] verticeList;
 	private System.Random _rd = new System.Random();
 	private int _randNum;
 	private float _lastSpawnTime = -1;
-	private Vector3 _pos;
+	private float _distance;
+	private Vector3 _spawnPos;
 
     void Start()
     {
@@ -59,10 +60,21 @@ public class TargetSpawning : MonoBehaviour
 	// Attemps to spawn a target on one of the plane's inner vertices.
 	void SpawnTarget()
 	{
-		_pos = transform.position;
-
 		// Chooses a random vertex at which to spawn
 		_randNum = _rd.Next(0, numVertices - 1);
+
+		_spawnPos = verticeList[_randNum];
+
+		// Distance is measured from the camera to the spawn location.
+		_distance = Math.Abs(Vector3.Distance(GameObject.FindWithTag("MainCamera").transform.position,
+							_spawnPos));
+
+		// Add a y-offset to the destination that scales with size change by checking distance,
+		// without going over base offset.
+		if (_distance > 0.5f)
+			_spawnPos.y += heightOffset / (2 * _distance);
+		else
+			_spawnPos.y += heightOffset;
 
 		// Top and bottom rows are excluded here.
 		//_randNum = _rd.Next(12, 108);
@@ -74,9 +86,7 @@ public class TargetSpawning : MonoBehaviour
 		// 0.1 added to height of the target so it appears on top of the plane.
 		// The plane is set as a parent object. Position of the plane must be added
 		// to convert from local to worldspace.
-		Instantiate(target, new Vector3(verticeList[_randNum].x + _pos.x,
-					verticeList[_randNum].y + 0.1f + _pos.y,
-					verticeList[_randNum].z + _pos.z), new Quaternion(0, 0, 0, 1), transform);
+		Instantiate(target, _spawnPos + transform.position, new Quaternion(0, 0, 0, 1), transform);
 
 		// Spawns a target slightly above the center of the plane with plane as parent.
 		//Instantiate(target, new Vector3(transform.position.x, transform.position.y + 0.1f,
