@@ -102,8 +102,8 @@ public class TargetMovement : MonoBehaviour
 		else
 			_oppositeFromLast = _numVertices - _randNum;
 
-		// Add parent position to convert from local to worldspace.
-		_destination = _verticeList[_oppositeFromLast] + transform.parent.position;
+		// Add parent position and spawn height offset to convert from local to worldspace.
+		_destination = _verticeList[_oppositeFromLast] + transform.parent.position + new Vector3(0, 0.1f,0);
 		_last = _oppositeFromLast;
 
 		//if (_last == -1)
