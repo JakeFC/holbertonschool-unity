@@ -152,5 +152,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetNumber: 5
   targetsMade: 0
+  numVertices: 0
   target: {fileID: 5367291011386875274, guid: 20ffe39dfdb599e4e97a6aacea309e4a, type: 3}
   verticeList: []
