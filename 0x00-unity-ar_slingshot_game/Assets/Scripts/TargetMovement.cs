@@ -31,11 +31,8 @@ public class TargetMovement : MonoBehaviour
 		if (_time % 2.6f < 0.1f || _time % 8.4f < 0.1f)
 			SetRandomMove();
 
+		// Move target toward destination at constant speed.
 		transform.position = Vector3.MoveTowards(transform.position, _destination, speed * Time.deltaTime);
-
-		GameObject.FindWithTag("Debug").GetComponent<Text>().text =
-		(transform.parent.position.ToString() + "\n" +
-		transform.position.ToString());
     }
 
 	// Sets the target's move destination to a random inner vertex.
@@ -57,13 +54,6 @@ public class TargetMovement : MonoBehaviour
 		
 		// Add parent position and spawn height difference to convert from local to worldspace.
 		_destination = _verticeList[_randNum] + transform.parent.position + new Vector3(0, 0.1f,0);
-
-		int i = 0;
-		foreach(Vector3 vertex in _verticeList)
-			i++;
-
-		GameObject.FindWithTag("Debug3").GetComponent<Text>().text =
-		(_verticeList[_randNum] + transform.parent.position).ToString() + i.ToString();
 
 		//_pos = transform.position;
 		//_randNum = _rd.Next(0, 7);
