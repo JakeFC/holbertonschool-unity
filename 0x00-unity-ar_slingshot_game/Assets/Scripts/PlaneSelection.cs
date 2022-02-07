@@ -15,6 +15,10 @@ public class PlaneSelection : MonoBehaviour
 	void OnMouseDown()
     {
 		//_renderer.material.color = Color.green;
+
+		// Turns the chosen plane fully transparent.
+		_renderer.material.color = new Color(0, 0, 0, 0);
+
 		// Creates an array of ARPlane mesh renderers.
         Renderer[] renderers = (Renderer[]) Object.FindObjectsOfType(typeof(Renderer));
 
