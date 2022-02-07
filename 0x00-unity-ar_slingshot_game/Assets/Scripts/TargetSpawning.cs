@@ -33,17 +33,17 @@ public class TargetSpawning : MonoBehaviour
 		//}
 
 		// Adds a NavMesh component if the plane doesn't have one.
-		if (gameObject.GetComponent<NavMeshSurface>() == null)
-		{
-			gameObject.AddComponent<NavMeshSurface>();
-		}
+		//if (gameObject.GetComponent<NavMeshSurface>() == null)
+		//{
+		//	gameObject.AddComponent<NavMeshSurface>();
+		//}
 
 		// Sets NavMeshSurface script to use mesh collider instead of renderer for shape info, since
 		// the mesh renderer will be disabled.
-		gameObject.GetComponent<NavMeshSurface>().useGeometry = NavMeshCollectGeometry.PhysicsColliders;
+		//gameObject.GetComponent<NavMeshSurface>().useGeometry = NavMeshCollectGeometry.PhysicsColliders;
 
 		// Builds the actual NavMesh.
-		gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
+		//gameObject.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
     void Update()
