@@ -94,8 +94,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.7
+  m_Height: 2.2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5367291011386875264
@@ -119,8 +119,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5367291011386875274}
   serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 0.5
+  m_Mass: 10
+  m_Drag: 0.1
   m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
