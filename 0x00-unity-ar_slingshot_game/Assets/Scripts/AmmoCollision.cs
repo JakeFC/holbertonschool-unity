@@ -22,10 +22,10 @@ public class AmmoCollision : MonoBehaviour
 
 	void OnCollisionEnter(Collision other)
 	{
-		if (other.gameObject.CompareTag("Target"))
-			scoreText.text = (int.Parse(scoreText.text) + 10).ToString();
 		if (_ammoMovement.fired == false)
 			return;
+		if (other.gameObject.CompareTag("Target"))
+			scoreText.text = (int.Parse(scoreText.text) + 10).ToString();
 		_ammoMovement.ResetBall();
 	}
 }
