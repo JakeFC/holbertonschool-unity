@@ -1,19 +1,23 @@
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TargetMovement : MonoBehaviour
 {
 	public float speed = 1;
 	//private NavMeshAgent _target;
 	private Vector3 _destination;
+	private Vector3 _baseScale;
 	private Vector3[] _verticeList;
 	private System.Random _rd = new System.Random();
 	private int _randNum = 0, _oppositeFromLast, _last = -1, _numVertices;
 	private float _time = 0;
 	//private Vector3 _pos;
+	private float _distance;
 
     void Start()
     {
+		_baseScale = transform.localScale;
+
         //_target = GetComponent<NavMeshAgent>();
 
 		// List of points on the plane are taken from the parent plane.
@@ -33,6 +37,9 @@ public class TargetMovement : MonoBehaviour
 
 		// Move target toward destination at constant speed.
 		transform.position = Vector3.MoveTowards(transform.position, _destination, speed * Time.deltaTime);
+
+		// Update scale based on distance from camera.
+		UpdateScale();
     }
 
 	// Sets the target's move destination to a random inner vertex.
@@ -149,5 +156,18 @@ public class TargetMovement : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Target"))
 			MoveAway();
+	}
+
+	// Updates scale of the target 
+	void UpdateScale()
+	{
+		// Distance is measured from the camera to the target.
+		_distance = Math.Abs(Vector3.Distance(GameObject.FindWithTag("MainCamera").transform.position,
+							transform.position));
+
+		// As long as we're not dividing by 0, scale target to cut in half for every
+		// meter away from camera.
+		if (_distance > 0)
+			transform.localScale = _baseScale / (2 * _distance);
 	}
 }
