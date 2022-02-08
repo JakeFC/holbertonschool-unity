@@ -2,15 +2,9 @@ using UnityEngine;
 
 public class QuitButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Exits the application.
+    public void Quit()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Application.Quit();
     }
 }
