@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class QuitButton : MonoBehaviour
+public class QuitButtonBehavior : MonoBehaviour
 {
     // Exits the application.
     public void Quit()
