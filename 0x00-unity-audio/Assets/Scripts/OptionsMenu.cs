@@ -12,7 +12,8 @@ public class OptionsMenu : MonoBehaviour
 	public Slider bgmSlider;
 	public Slider sfxSlider;
 
-	// Sets the state of Invert Y-Axis to the saved setting on load.
+	// Sets the state of Invert Y-Axis to the saved setting on load, as well as volume
+	// variables' starting values for use in other functions.
 	void Start()
 	{
 		if (PlayerPrefs.HasKey("Inverted"))
@@ -34,7 +35,7 @@ public class OptionsMenu : MonoBehaviour
 
 	// Loads the previous scene, saved to PlayerPrefs whenever OptionsMenu
 	// is loaded.
-    public void Back()
+	public void Back()
 	{
 		SceneManager.LoadScene(PlayerPrefs.GetString("LastScene"));
 	}
