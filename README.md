@@ -1,6 +1,6 @@
 # The (mostly) shallow end of the pool for all things Unity
 
-This repository contains a large cross-section of what I've worked on at Holberton for the past 7 months, most notably [3d platformer](0x00-unity-audio) and [Vuforia slingshot game](0x00-unity-ar_slingshot_game).
+This repository contains a large cross-section of what I've worked on at Holberton for the past 7 months, most notably [3d Platformer](0x00-unity-audio) and [Vuforia Slingshot Game](0x00-unity-ar_slingshot_game).
 
 ![Unity Logo](https://cdn.fs.brandfolder.com/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/Ta1coQ3wSOmtwyQxJ86r)
 
