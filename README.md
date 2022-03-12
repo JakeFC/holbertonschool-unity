@@ -5,4 +5,4 @@ This repository contains a large cross-section of what I've worked on at Holbert
 ![Unity Logo](https://cdn.fs.brandfolder.com/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/cache=expiry:604800/Ta1coQ3wSOmtwyQxJ86r)
 
 #### About Me
-I'm a Holberton School student interested in logical problem-solving and creating dynamic experiences. Unity has allowed me to take those experiences to the next level with its seamless integration of scripting, ui elements, physics, and animations. Check me out on [LinkedIn](https://www.linkedin.com/in/jacobfchavera/)
+I'm an AR/VR student at Holberton School interested in logical problem-solving and creating dynamic experiences. Unity has allowed me to take those experiences to the next level with its seamless integration of scripting, ui elements, physics, and animations. Check me out on [LinkedIn](https://www.linkedin.com/in/jacobfchavera/)
