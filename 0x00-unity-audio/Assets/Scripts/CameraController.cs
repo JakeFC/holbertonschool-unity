@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+	// Horizontal speed.
 	public float speedH = 2f;
+	// Vertical speed.
 	public float speedV = 2f;
 
+	// Vertical camera offset.
 	private float yaw = 0f;
+	// Horizontal camera offset.
 	private float pitch = 0f;
 
 	public bool isInverted = false;
@@ -34,13 +38,5 @@ public class CameraController : MonoBehaviour
 			pitch -= speedV * Input.GetAxis("Mouse Y");
 
 		transform.eulerAngles = new Vector3(pitch, yaw, 0);
-
-		// the following could also work if placed on camera GameObject
-		//
-		// if (Input.GetMouseButton(0))
-		// {
-		//	transform.RotateAround(target.transform.position, -Vector3.up, Input.GetAxis("Mouse X"));
-		//	transform.RotateAround(target.transform.position, Vector3.right, Input.GetAxis("Mouse Y"));
-		//	}
     }
 }
