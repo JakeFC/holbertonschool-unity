@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class CutsceneController : MonoBehaviour
 {
-	public GameObject player;
-	public GameObject MainCamera;
-	public GameObject TimerCanvas;
-    // Start is called before the first frame update
+    public GameObject player;
+    public GameObject MainCamera;
+    public GameObject TimerCanvas;
+    
+    // Enables player movement and timer start when called.
     void EndCutscene()
-	{
-		player.GetComponent<PlayerController>().enabled = true;
-		MainCamera.SetActive(true);
-		TimerCanvas.SetActive(true);
-		transform.gameObject.SetActive(false);
-	}
+    {
+	player.GetComponent<PlayerController>().enabled = true;
+	MainCamera.SetActive(true);
+	TimerCanvas.SetActive(true);
+	transform.gameObject.SetActive(false);
+    }
 }
