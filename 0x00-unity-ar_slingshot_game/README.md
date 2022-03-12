@@ -28,3 +28,6 @@ I'm an AR/VR student at Holberton School who's passionate about logical problem-
 * Open the project in Unity3D
 * Built to your system (Android or iOS)
 * For iOS: build to your phone with XCode
+
+##### Known Bugs
+- Plane selection doesn't always line up with touched target
