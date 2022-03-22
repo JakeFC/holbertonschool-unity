@@ -5,3 +5,4 @@
 */Builds/* filter=lfs diff=lfs merge=lfs -text
 *Builds/* filter=lfs diff=lfs merge=lfs -text
 *Plugins/* filter=lfs diff=lfs merg=lfs -text
+*crosstales* filter=lfs diff=lfs merg=lfs -text
