@@ -4,3 +4,4 @@
 *.tgz filter=lfs diff=lfs merge=lfs -text
 */Builds/* filter=lfs diff=lfs merge=lfs -text
 *Builds/* filter=lfs diff=lfs merge=lfs -text
+*/crosstales/3D Skybox* filter=lfs diff=lfs merg=lfs -text
