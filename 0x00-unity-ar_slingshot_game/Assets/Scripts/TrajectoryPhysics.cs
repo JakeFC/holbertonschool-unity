@@ -9,17 +9,13 @@ public class TrajectoryPhysics : MonoBehaviour
 	private List<Vector3> _linePoints = new List<Vector3>();
 
 	// Updates the line renderer to a new trajectory.
-    public void UpdateTrajectory(Vector3 forceVector, Rigidbody rigidBody, Vector3 startingPoint)
+    	public void UpdateTrajectory(Vector3 forceVector, Rigidbody rigidBody, Vector3 startingPoint)
 	{
 		// Velocity per frame is direction times force (forceVector) divided by mass times time per frame.
 		Vector3 velocity = (forceVector / rigidBody.mass) * Time.fixedDeltaTime;
 
-		// Physics equations wouldn't work here for some reason. Made large enough for long trajectories.
+		// Scaling flight duration with physics calculation didn't work. Made large enough for long trajectories.
 		float FlightDuration = 70;
-
-		//float FlightDuration = (2 * velocity.y) / -Physics.gravity.y;
-		//float FlightDuration = (float)(velocity.y + Math.Sqrt(velocity.y * velocity.y + 2 * -Physics.gravity.y *
-		//								startingPoint.y)) / -Physics.gravity.y;
 
 		// Time interval at which to set each point in the line.
 		float stepTime = FlightDuration / lineSegmentCount;

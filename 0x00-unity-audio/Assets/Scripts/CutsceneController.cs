@@ -8,8 +8,9 @@ public class CutsceneController : MonoBehaviour
 	public GameObject player;
 	public GameObject MainCamera;
 	public GameObject TimerCanvas;
-    // Start is called before the first frame update
-    void EndCutscene()
+    
+	// Enables player movement and timer start when called.
+	void EndCutscene()
 	{
 		player.GetComponent<PlayerController>().enabled = true;
 		MainCamera.SetActive(true);
