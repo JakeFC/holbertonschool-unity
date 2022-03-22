@@ -11,6 +11,7 @@ namespace WebXR.Interactions
     private Vector3 m_offset;
     private Vector3 m_currentVelocity;
     private Vector3 m_previousPos;
+    private Vector3 _posChange;
 
     void Awake()
     {
@@ -31,18 +32,22 @@ namespace WebXR.Interactions
     {
       // The object is given the mouse's direction and velocity, as well as forward velocity
       // equal to two-thirds that of the upward.
-      m_rigidbody.velocity = .5f * (m_currentVelocity + new Vector3(0f, 0f, 0.67f * m_currentVelocity.y));
+      m_rigidbody.velocity = 0.4f * (m_currentVelocity + new Vector3(0f, 0f, 0.67f * m_currentVelocity.y));
       m_currentCamera = null;
     }
 
     void FixedUpdate()
     {
-      if (m_currentCamera != null)
+      if (m_currentCamera != null )
       {
         Vector3 currentScreenPoint = GetMousePosWithScreenZ(m_screenPoint.z);
         m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.MovePosition(m_currentCamera.ScreenToWorldPoint(currentScreenPoint) + m_offset);
-        m_currentVelocity = (transform.position - m_previousPos) / Time.deltaTime;
+        _posChange = (transform.position - m_previousPos);
+        if (_posChange.x < -.05 || _posChange.x > .05 ||
+            _posChange.y < -.05 || _posChange.y > .05 ||
+            _posChange.z < -.05 || _posChange.z > .05)
+          m_currentVelocity = (transform.position - m_previousPos) / Time.deltaTime;
         m_previousPos = transform.position;
       }
     }

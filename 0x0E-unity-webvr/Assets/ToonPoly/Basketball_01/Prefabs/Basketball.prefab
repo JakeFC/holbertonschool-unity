@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5843411414398747046}
   - component: {fileID: 5908459422589723315}
   - component: {fileID: -7467943659088836339}
-  - component: {fileID: -5318511190891393901}
+  - component: {fileID: 6014212662258314237}
   m_Layer: 0
   m_Name: Basketball
   m_TagString: Interactable
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 5526534604079461024}
---- !u!114 &-5318511190891393901
+--- !u!114 &6014212662258314237
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,6 +168,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5526534604079461024}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af03eecb340eb240abc88e883024e11, type: 3}
+  m_Script: {fileID: 11500000, guid: ba6dd422c10d12445b262cc32e62e945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
