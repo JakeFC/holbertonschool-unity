@@ -34,7 +34,7 @@ namespace WebXR.Interactions
     {
       // The object is given the mouse's direction and velocity, as well as forward velocity
       // equal to two-thirds that of the upward.
-      m_rigidbody.velocity = 0.25f * (m_currentVelocity + new Vector3(0f, 0f, 0.67f * m_currentVelocity.y));
+      m_rigidbody.velocity = 0.18f * (m_currentVelocity + new Vector3(0f, 0f, 0.67f * m_currentVelocity.y));
       m_currentCamera = null;
     }
 
