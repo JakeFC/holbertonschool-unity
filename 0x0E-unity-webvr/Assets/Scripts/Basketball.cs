@@ -32,4 +32,10 @@ public class Basketball : MonoBehaviour
             _cloned = true;
         }
     }
+
+    void FixedUpdate()
+    {
+        // Cuts the force of gravity on the ball in half.
+        _rb.AddForce(Physics.gravity * -0.5f, ForceMode.Acceleration);
+    }
 }

@@ -44,12 +44,16 @@ namespace WebXR.Interactions
         m_rigidbody.velocity = Vector3.zero;
         m_rigidbody.MovePosition(m_currentCamera.ScreenToWorldPoint(currentScreenPoint) + m_offset);
         _posChange = (transform.position - m_previousPos);
+        // Ensures mouse has reasonable velocity before changing the variable.
         if (_posChange.x < -.05 || _posChange.x > .05 ||
             _posChange.y < -.05 || _posChange.y > .05 ||
             _posChange.z < -.05 || _posChange.z > .05)
           m_currentVelocity = (transform.position - m_previousPos) / Time.deltaTime;
         m_previousPos = transform.position;
       }
+
+      // Adds back the percentage of gravity physics removed in basketball script.
+      m_rigidbody.AddForce(Physics.gravity * 0.5f, ForceMode.Acceleration);
     }
 
     Vector3 GetMousePosWithScreenZ(float screenZ)
