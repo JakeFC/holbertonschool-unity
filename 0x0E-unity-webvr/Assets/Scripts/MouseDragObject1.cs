@@ -25,6 +25,8 @@ namespace WebXR.Interactions
       {
         m_screenPoint = m_currentCamera.WorldToScreenPoint(gameObject.transform.position);
         m_offset = gameObject.transform.position - m_currentCamera.ScreenToWorldPoint(GetMousePosWithScreenZ(m_screenPoint.z));
+        // Resets check on ball to indicate whether it has touched the area above the net.
+        transform.GetComponent<Basketball>().canScore = false;
       }
     }
 

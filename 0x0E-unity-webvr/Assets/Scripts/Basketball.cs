@@ -5,6 +5,7 @@ using UnityEngine;
 public class Basketball : MonoBehaviour
 {
     public GameObject ballPrefab;
+    public bool canScore = false;
     private Rigidbody _rb;
     private Vector3 _startPos;
     private Quaternion _zeroRot;
@@ -18,16 +19,10 @@ public class Basketball : MonoBehaviour
 
     void Update()
     {
-        // Resets the ball when it hits the floor.
-        //if (transform.position.y < 0.281)
-        //{
-        //    _rb.velocity = Vector3.zero;
-        //    transform.position = _startPos;
-        //}
-
         // Instantiates a new ball when this one hits the floor.
         if (!_cloned && transform.position.y < 0.281)
         {
+            canScore = false;
             Instantiate(ballPrefab, _startPos, _zeroRot, transform.parent);
             _cloned = true;
         }
