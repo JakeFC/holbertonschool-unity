@@ -1,5 +1,7 @@
 # 0x00. Unity - ShaderGraph
 
+![alt text](ShaderGraph.png)
+
 Learning Goals
 - What is rendering
 - What is a render pipeline
