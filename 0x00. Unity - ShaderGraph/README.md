@@ -10,3 +10,5 @@ Learning Goals
 - What is the difference between surface, vertex and fragment shaders
 - What is UV mapping
 - What is vertex animation
+
+You can download the asset package [here](https://drive.google.com/file/d/1l7kfICNCPVHwdEtLaqSuqgqmpLKm3ttJ/view?usp=sharing)
