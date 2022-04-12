@@ -1,6 +1,6 @@
 # 0x00. Unity - ShaderGraph
 
-![alt text](ShaderGraph.png)
+![alt text](https://github.com/JakeFC/holbertonschool-unity/blob/main/0x00.%20Unity%20-%20ShaderGraph/ShaderGraph.PNG?raw=true)
 
 Learning Goals
 - What is rendering
